@@ -21,6 +21,8 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'chazmcgarvey/vimcoder'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'vim-scripts/gtags.vim'
+
 " for haskell
 NeoBundle 'dag/vim2hs'
 NeoBundle 'pbrisbin/html-template-syntax'
@@ -39,6 +41,7 @@ NeoBundle 'tpope/vim-fugitive'
 " vim-scripts repos
 NeoBundle 'tComment'
 NeoBundle 'buftabs'
+NeoBundle 'gtags'
 " non github repos
 filetype plugin indent on
 syntax on
@@ -127,7 +130,7 @@ highlight CursorColumn term=reverse cterm=reverse
 " lightline
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'wombat',
       \ 'component': {
       \   'readonly': '%{&readonly?"⭤":""}',
       \ }
@@ -135,8 +138,8 @@ let g:lightline = {
 
 " colorschema
 set background=dark
-let g:solarized_termtrans=1
-colorscheme solarized
+"let g:solarized_termtrans=1
+colorscheme hybrid
 
 
 
