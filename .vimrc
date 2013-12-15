@@ -1,3 +1,4 @@
+" {{{ NeoBundle basic setting
 set nocompatible
 filetype off
 
@@ -5,7 +6,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-
+NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -14,15 +15,26 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
-" original repos on github 
-NeoBundle 'Shougo/neobundle.vim'
+" }}}
+" {{{ unite
 NeoBundle 'Shougo/unite.vim'
+" }}}
+" {{{ neocomplcache
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'chazmcgarvey/vimcoder'
+let g:neocomplcache_enable_at_startup = 1
+" }}}
+" {{{ lightline
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'vim-scripts/gtags.vim'
-
+" lightline
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ }
+      \ }
+" }}}
+" {{{ syntax color and check
 " for haskell
 NeoBundle 'dag/vim2hs'
 NeoBundle 'pbrisbin/html-template-syntax'
@@ -36,13 +48,25 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'briancollins/vim-jst'
 " syntax checker using various tools
 NeoBundle 'scrooloose/syntastic'
+" }}}
+" {{{ vim-indent-guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1 
+" }}}
 NeoBundle 'tpope/vim-fugitive'
-" vim-scripts repos
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'chazmcgarvey/vimcoder'
+NeoBundle 'vim-scripts/gtags.vim'
+
 NeoBundle 'tComment'
+" {{{ buftabs
 NeoBundle 'buftabs'
+let buftabs_only_basename = 1
+let buftabs_in_statusline = 1
+" }}}
 NeoBundle 'gtags'
-" non github repos
+
 filetype plugin indent on
 syntax on
 
@@ -82,7 +106,7 @@ au BufRead,BufNewFile *.cassius setf cassius
 au BufRead,BufNewFile *.lucius  setf lucius
 au BufRead,BufNewFile *.julius  setf julius
 
-" key mappings
+" {{{ key mappings
 inoremap <C-f> <Esc>
 
 nnoremap <silent> tc :tabnew<CR>
@@ -103,22 +127,10 @@ nnoremap vim :<C-u>edit $MYVIMRC<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
-
-" setting in each plugin
-" buftabs
-let buftabs_only_basename = 1
-let buftabs_in_statusline = 1
-
-" indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1 
-
-" unite.vim
+" unite
 nnoremap <Space>u :Unite buffer file file_mru bookmark<CR>
 nnoremap <Space>c :Unite colorscheme<CR>
-
-" neocomplcache.vim
-let g:neocomplcache_enable_at_startup = 1
+" }}}
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
@@ -126,20 +138,11 @@ let loaded_matchparen = 1
 highlight CursorColumn term=reverse cterm=reverse
 
 
-
-" lightline
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ }
-      \ }
-
-" colorschema
+" {{{ colorschema
 set background=dark
 "let g:solarized_termtrans=1
 colorscheme hybrid
+" }}}
 
 
 
