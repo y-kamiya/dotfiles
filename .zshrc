@@ -16,7 +16,15 @@ setopt auto_cd
 
 
 # aliasの設定
-alias ls="ls --color=auto"
+case ${OSTYPE} in
+    darwin*)
+        alias ls="ls -G"
+        ;;
+    linux*)
+        alias ls="ls --color=auto"
+        ;;
+esac
+
 alias la="ls -a"
 alias ll="ls -l"
 alias ivm="vim"
@@ -24,7 +32,7 @@ alias ivm="vim"
 export de='develop'
 
 # ssh-agent
-. ~/.keychain/$HOST-sh
+#. ~/.keychain/$HOST-sh
 
 exceptedFiles='compiled_* .git'
 function find-grep() { find . -type f ! -name $exceptedFiles | xargs grep -n --binary-files=without-match $@ }
@@ -45,7 +53,7 @@ precmd() {
 }
 
 setopt prompt_subst
-PROMPT="[%n@dev1]%# "
+PROMPT="[%n@%m]%# "
 RPROMPT="%F{blue}%1v%f%{[32m%}[%~]%{[m%}"
 
 # ヒストリの設定
