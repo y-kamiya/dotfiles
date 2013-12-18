@@ -58,6 +58,13 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'chazmcgarvey/vimcoder'
 NeoBundle 'vim-scripts/gtags.vim'
+" {{{ vim-php-cs-fixer
+let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
+if executable(s:fixer)
+    NeoBundle 'stephpy/vim-php-cs-fixer'
+    let g:php_cs_fixer_path = s:fixer
+endif
+" }}}
 
 NeoBundle 'tComment'
 " {{{ buftabs
@@ -65,7 +72,6 @@ NeoBundle 'buftabs'
 let buftabs_only_basename = 1
 let buftabs_in_statusline = 1
 " }}}
-NeoBundle 'gtags'
 
 filetype plugin indent on
 syntax on
