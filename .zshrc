@@ -56,6 +56,9 @@ setopt prompt_subst
 PROMPT="[%n@%m]%# "
 RPROMPT="%F{blue}%1v%f%{[32m%}[%~]%{[m%}"
 
+# tmux powerline
+PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 # ヒストリの設定
 HISTFILE=~/.histfile
 HISTSIZE=10000
