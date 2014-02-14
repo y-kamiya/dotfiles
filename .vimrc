@@ -96,7 +96,9 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set path+=~/hs/**,~/gws/poipoi/poipoi_enchant/**
+set path+=~/hs/**,~/gws/poipoi_enchant_self/**
+set suffixesadd+=.php
+
 
 au BufRead,BufNewFile *.ctp set filetype=php
 au BufRead,BufNewFile *.html set filetype=php
