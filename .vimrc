@@ -58,6 +58,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'chazmcgarvey/vimcoder'
 NeoBundle 'vim-scripts/gtags.vim'
+"NeoBundle 'joonty/vdebug'
 " {{{ vim-php-cs-fixer
 let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
 if executable(s:fixer)
