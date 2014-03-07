@@ -52,7 +52,7 @@ NeoBundle 'scrooloose/syntastic'
 " {{{ vim-indent-guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_guide_size = 1 
+"let g:indent_guides_guide_size = 1
 " }}}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
@@ -77,7 +77,6 @@ filetype plugin indent on
 syntax on
 
 
-
 set termencoding=utf-8
 " set fileencodings=iso-2021-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,euc-jp,eucjp-ms,cp932
 set title
@@ -98,6 +97,7 @@ set hlsearch
 set foldmethod=marker
 set path+=~/hs/**,~/gws/poipoi_enchant_self/**
 set suffixesadd+=.php
+set pastetoggle=<F9>
 
 
 au BufRead,BufNewFile *.ctp set filetype=php
@@ -108,7 +108,7 @@ au BufRead,BufNewFile *.as set filetype=javascript
 au BufNewFile *.tpl 0r ~/.vim/template/template.tpl
 au BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
 
-" haskell 
+" haskell
 au BufRead,BufNewFile *.hamlet  setf hamlet
 au BufRead,BufNewFile *.cassius setf cassius
 au BufRead,BufNewFile *.lucius  setf lucius
@@ -152,7 +152,11 @@ set background=dark
 colorscheme hybrid
 " }}}
 
-
-
-
-
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+    let tmp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = tmp
+endfunction
