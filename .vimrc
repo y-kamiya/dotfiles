@@ -69,10 +69,11 @@ endif
 
 NeoBundle 'tComment'
 " {{{ buftabs
-NeoBundle 'buftabs'
-let buftabs_only_basename = 1
-let buftabs_in_statusline = 1
+"NeoBundle 'buftabs'
+"let buftabs_only_basename = 1
+"let buftabs_in_statusline = 1
 " }}}
+:source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
 syntax on
