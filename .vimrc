@@ -1,3 +1,5 @@
+let mapleader=" "
+
 " {{{ NeoBundle basic setting
 set nocompatible
 filetype off
@@ -18,10 +20,33 @@ NeoBundle 'Shougo/vimproc', {
 " }}}
 " {{{ unite
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+" unite prefix key
+nnoremap [unite] <Nop>
+nmap <Leader>f [unite]
+" mappings
+nnoremap [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
+nnoremap [unite]r :<C-u>Unite<Space>register<CR>
+nnoremap [unite]R :<C-u>UniteResume<CR>
+
+let g:unite_source_grep_max_candidates = 200
+
+if executable('ag')
+    " Use ag in unite grep source.
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_recursive_opt = 'HRn'
+    let g:unite_source_grep_default_opts =
+    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+endif
+
 " }}}
 " {{{ neocomplcache
 NeoBundle 'Shougo/neocomplcache'
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 2
 " }}}
 " {{{ lightline
 NeoBundle 'itchyny/lightline.vim'
@@ -56,23 +81,26 @@ NeoBundle 'scrooloose/syntastic'
 " }}}
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'chazmcgarvey/vimcoder'
+NeoBundle 'tComment'
+NeoBundle 'tpope/vim-abolish'
 NeoBundle 'vim-scripts/gtags.vim'
-"NeoBundle 'joonty/vdebug'
-" {{{ vim-php-cs-fixer
+
+" {{{ vim-php-cs-fixer, vdebug
 let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
 if executable(s:fixer)
+    NeoBundle 'joonty/vdebug'
     NeoBundle 'stephpy/vim-php-cs-fixer'
     let g:php_cs_fixer_path = s:fixer
 endif
 " }}}
 
-NeoBundle 'tComment'
 " {{{ buftabs
 "NeoBundle 'buftabs'
 "let buftabs_only_basename = 1
 "let buftabs_in_statusline = 1
 " }}}
+"NeoBundle 'chazmcgarvey/vimcoder'
+"
 :source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
@@ -101,6 +129,11 @@ set path+=~/hs/**,~/gws/poipoi_enchant_self/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
 
+" 対応するカッコの表示をしない
+let loaded_matchparen = 1
+
+highlight CursorColumn term=reverse cterm=reverse
+
 
 au BufRead,BufNewFile *.ctp set filetype=php
 au BufRead,BufNewFile *.html set filetype=php
@@ -118,6 +151,7 @@ au BufRead,BufNewFile *.julius  setf julius
 
 " {{{ key mappings
 inoremap <C-f> <Esc>
+
 
 nnoremap <silent> tc :tabnew<CR>
 nnoremap <silent> tk :tabclose<CR>
@@ -137,23 +171,8 @@ nnoremap vim :<C-u>edit $MYVIMRC<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
-" unite
-nnoremap <Space>u :Unite buffer file file_mru bookmark<CR>
-nnoremap <Space>c :Unite colorscheme<CR>
-" }}}
 
-" 対応するカッコの表示をしない
-let loaded_matchparen = 1
-
-highlight CursorColumn term=reverse cterm=reverse
-
-
-" {{{ colorschema
-set background=dark
-"let g:solarized_termtrans=1
-colorscheme hybrid
-" }}}
-
+" search selected strings in visual mode
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
@@ -162,3 +181,15 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = tmp
 endfunction
+
+" show cursor position toggle
+nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
+" }}}
+" {{{ colorschema
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
+"set background=dark
+"colorscheme hybrid
+" }}}
+
