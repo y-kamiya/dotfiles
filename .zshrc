@@ -42,6 +42,7 @@ function find:() { find . -name "$@" }
 function col() { awk -v num=$1 '{print $num}' }
 function gco() { git branch | grep $1 | xargs git checkout }
 function gco-a() { git branch -a | grep $1 | grep remote | cut'/' -f3- | xargs git checkout }
+function gd() { git branch | grep $1 | xargs git branch -D }
 
 ###############################################
 ##   プロンプトの表示設定                     #
