@@ -1,10 +1,12 @@
 bindkey -e
 
-alias j="$HOME/.autojump/bin/autojump"
-[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
+# git completion
+if [ -d ~/.zsh/completion ]; then
+    fpath=(~/.zsh/completion $fpath)
+    autoload -U compinit
+    compinit -u
+fi
 
-#autoload -U compinit
-#compinit
 autoload zmv
 alias zmv='noglob zmv -W '
 
