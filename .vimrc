@@ -62,6 +62,10 @@ let g:lightline = {
 " {{{ syntax color and check
 " for haskell
 NeoBundle 'dag/vim2hs'
+" disable all conceals, including the simple ones like
+" " lambda and composition
+let g:haskell_conceal      = 0
+
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -184,6 +188,7 @@ endfunction
 
 " show cursor position toggle
 nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
+nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
 " }}}
 " {{{ colorschema
 set background=dark
