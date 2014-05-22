@@ -192,9 +192,8 @@ nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
 " }}}
 " {{{ colorschema
 set background=dark
-let g:solarized_termtrans=1
-colorscheme solarized
-"set background=dark
-"colorscheme hybrid
+"let g:solarized_termtrans=1
+"colorscheme solarized
+colorscheme hybrid
 " }}}
 
