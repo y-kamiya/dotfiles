@@ -69,6 +69,10 @@ let g:haskell_conceal      = 0
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'ujihisa/ref-hoogle'
+NeoBundle 'ujihisa/unite-haskellimport'
+nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>
 " for html coding
 NeoBundle 'mattn/zencoding-vim'
 " for js syntax

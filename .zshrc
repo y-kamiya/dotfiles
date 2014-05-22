@@ -17,7 +17,7 @@ export LANG=ja_JP.UTF-8
 setopt auto_cd
 
 # for brew
-PATH=/usr/local/bin:$PATH
+PATH=~/Library/Haskell/bin:/usr/local/bin:$PATH
 
 # aliasの設定
 case ${OSTYPE} in
