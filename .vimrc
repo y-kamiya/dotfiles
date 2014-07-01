@@ -1,5 +1,6 @@
 let mapleader=" "
 
+
 " {{{ NeoBundle basic setting
 set nocompatible
 filetype off
@@ -19,8 +20,24 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 " }}}
 " {{{ unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+    \ 'autoload': { 'commands': ['Unite'] }
+\}
+let s:bundle = neobundle#get("unite.vim")
+function! s:bundle.hooks.on_source(bundle)
+    NeoBundle 'Shougo/neomru.vim'
+    let g:unite_source_grep_max_candidates = 200
+    
+    if executable('ag')
+        " Use ag in unite grep source.
+        let g:unite_source_grep_command = 'ag'
+        let g:unite_source_grep_recursive_opt = 'HRn'
+        let g:unite_source_grep_default_opts =
+        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+    endif
+endfunction
+ 
 " unite prefix key
 nnoremap [unite] <Nop>
 nmap <Leader>f [unite]
@@ -32,21 +49,15 @@ nnoremap [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
 nnoremap [unite]r :<C-u>Unite<Space>register<CR>
 nnoremap [unite]R :<C-u>UniteResume<CR>
 
-let g:unite_source_grep_max_candidates = 200
-
-if executable('ag')
-    " Use ag in unite grep source.
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_recursive_opt = 'HRn'
-    let g:unite_source_grep_default_opts =
-    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-endif
-
 " }}}
 " {{{ neocomplcache
 NeoBundle 'Shougo/neocomplcache'
-let g:neocomplcache_enable_at_startup = 2
+let s:bundle = neobundle#get("neocomplcache")
+function! s:bundle.hooks.on_source(bundle)
+  let g:neocomplcache_enable_at_startup = 1
+	let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_max_list = 5
+endfunction
 " }}}
 " {{{ lightline
 NeoBundle 'itchyny/lightline.vim'
@@ -61,47 +72,57 @@ let g:lightline = {
 " }}}
 " {{{ syntax color and check
 " for haskell
-NeoBundle 'dag/vim2hs'
+NeoBundleLazy 'dag/vim2hs', { 'autoload': {'filetypes': ['haskell']} }
 " disable all conceals, including the simple ones like
 " " lambda and composition
-let g:haskell_conceal      = 0
+let s:bundle = neobundle#get("vim2hs")
+function! s:bundle.hooks.on_source(bundle)
+  let g:haskell_conceal      = 0
+endfunction
 
-NeoBundle 'pbrisbin/html-template-syntax'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'ujihisa/ref-hoogle'
-NeoBundle 'ujihisa/unite-haskellimport'
+NeoBundleLazy 'pbrisbin/html-template-syntax', { 'autoload': {'filetypes': ['haskell']} }
+NeoBundleLazy 'eagletmt/neco-ghc'            , { 'autoload': {'filetypes': ['haskell']} }
+NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['haskell']} }
+"NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
+"NeoBundleLazy 'ujihisa/ref-hoogle'           , { 'autoload': {'filetypes': ['haskell']} }
+NeoBundleLazy 'ujihisa/unite-haskellimport'  , { 'autoload': {'filetypes': ['haskell']} }
 nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>
 " for html coding
-NeoBundle 'mattn/zencoding-vim'
+NeoBundleLazy 'mattn/zencoding-vim'     , { 'autoload': {'filetypes': ['html, php, hamlet']} }
 " for js syntax
-NeoBundle 'pangloss/vim-javascript'
+NeoBundleLazy 'pangloss/vim-javascript' , { 'autoload': {'filetypes': ['js']} }
 " for ejs syntax
-NeoBundle 'briancollins/vim-jst'
+NeoBundleLazy 'briancollins/vim-jst'    , { 'autoload': {'filetypes': ['js']} }
 " syntax checker using various tools
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 " }}}
 " {{{ vim-indent-guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_guide_size = 1
 " }}}
-NeoBundle 'tpope/vim-fugitive'
+"{{{ vim-fugitive
+NeoBundleLazy 'tpope/vim-fugitive', { 
+      \'autoload': {'commands': ['Gblame']}, 
+      \'augroup' : 'fugitive',
+      \}
+let s:bundle = neobundle#get('vim-fugitive')
+function! s:bundle.hooks.on_post_source(bundle)
+    doautoall fugitive BufNewFile
+endfunction
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tComment'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'vim-scripts/gtags.vim'
-
+"}}}
 " {{{ vim-php-cs-fixer, vdebug
 let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
 if executable(s:fixer)
-    NeoBundle 'joonty/vdebug'
-    NeoBundle 'stephpy/vim-php-cs-fixer'
+    NeoBundleLazy 'joonty/vdebug'            , { 'autoload': {'commands': ['php']} } 
+    NeoBundleLazy 'stephpy/vim-php-cs-fixer' , { 'autoload': {'commands': ['php']} } 
     let g:php_cs_fixer_path = s:fixer
 endif
 " }}}
-
 " {{{ buftabs
 "NeoBundle 'buftabs'
 "let buftabs_only_basename = 1
@@ -123,10 +144,8 @@ set backupdir=~/.vim/vimbackup
 set directory=~/.vim/vimbackup
 set expandtab
 set number
-set shiftwidth=4
 set smartcase
 set smarttab
-set tabstop=4
 set wildmenu
 set laststatus=2
 set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
@@ -136,6 +155,9 @@ set foldmethod=marker
 set path+=~/hs/**,~/gws/poipoi_enchant_self/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
+set shiftwidth=2
+set tabstop=2
+
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
@@ -148,8 +170,8 @@ au BufRead,BufNewFile *.html set filetype=php
 au BufRead,BufNewFile *.tpl set filetype=html
 au BufRead,BufNewFile *.as set filetype=javascript
 
-au BufNewFile *.tpl 0r ~/.vim/template/template.tpl
-au BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
+"au BufNewFile *.tpl 0r ~/.vim/template/template.tpl
+"au BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
 
 " haskell
 au BufRead,BufNewFile *.hamlet  setf hamlet

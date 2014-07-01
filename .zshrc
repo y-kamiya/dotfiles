@@ -38,8 +38,8 @@ export de='develop'
 # ssh-agent
 #. ~/.keychain/$HOST-sh
 
-exceptedFiles='compiled_* .git'
-function find-grep() { find . -type f ! -name $exceptedFiles | xargs grep -n --binary-files=without-match $@ }
+exceptedFiles='compiled_* .git '
+function find-grep() { find . -print0 -type f ! -name $exceptedFiles -o -name dist -prune | xargs -0 grep -n --binary-files=without-match "$@" }
 function find:() { find . -name "$@" }
 function col() { awk -v num=$1 '{print $num}' }
 function gco() { git branch | grep $1 | xargs git checkout }
