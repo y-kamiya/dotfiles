@@ -1,5 +1,6 @@
 let mapleader=" "
 
+set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
 
 " {{{ NeoBundle basic setting
 set nocompatible
@@ -80,7 +81,7 @@ function! s:bundle.hooks.on_source(bundle)
   let g:haskell_conceal      = 0
 endfunction
 
-NeoBundleLazy 'pbrisbin/html-template-syntax', { 'autoload': {'filetypes': ['haskell']} }
+"NeoBundleLazy 'pbrisbin/html-template-syntax', { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'eagletmt/neco-ghc'            , { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['haskell']} }
 "NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
@@ -88,13 +89,13 @@ NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['has
 NeoBundleLazy 'ujihisa/unite-haskellimport'  , { 'autoload': {'filetypes': ['haskell']} }
 nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>
 " for html coding
-NeoBundleLazy 'mattn/zencoding-vim'     , { 'autoload': {'filetypes': ['html, php, hamlet']} }
+"NeoBundleLazy 'mattn/zencoding-vim'     , { 'autoload': {'filetypes': ['html, php, hamlet']} }
 " for js syntax
 NeoBundleLazy 'pangloss/vim-javascript' , { 'autoload': {'filetypes': ['js']} }
 " for ejs syntax
 NeoBundleLazy 'briancollins/vim-jst'    , { 'autoload': {'filetypes': ['js']} }
 " syntax checker using various tools
-"NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 " }}}
 " {{{ vim-indent-guides
 " NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -147,6 +148,8 @@ set number
 set smartcase
 set smarttab
 set wildmenu
+set nobackup
+set lazyredraw
 set laststatus=2
 set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
@@ -155,8 +158,8 @@ set foldmethod=marker
 set path+=~/hs/**,~/gws/poipoi_enchant_self/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 
 " 対応するカッコの表示をしない
@@ -174,11 +177,19 @@ au BufRead,BufNewFile *.as set filetype=javascript
 "au BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
 
 " haskell
+au BufRead,BufNewFile *.hs  set sw=2 ts=2
 au BufRead,BufNewFile *.hamlet  setf hamlet
 au BufRead,BufNewFile *.cassius setf cassius
 au BufRead,BufNewFile *.lucius  setf lucius
 au BufRead,BufNewFile *.julius  setf julius
 
+" {{{  go
+au BufRead,BufNewFile *.go set noexpandtab
+au BufWritePre *.go Fmt
+let g:gofmt_command = 'goimports'
+set rtp+=${GOROOT}/misc/vim
+set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
+" }}}
 " {{{ key mappings
 inoremap <C-f> <Esc>
 
