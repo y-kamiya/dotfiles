@@ -141,8 +141,8 @@ set termencoding=utf-8
 " set fileencodings=iso-2021-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,euc-jp,eucjp-ms,cp932
 set title
 set smartindent
-set backupdir=~/.vim/vimbackup
-set directory=~/.vim/vimbackup
+"set backupdir=~/.vim/vimbackup
+"set directory=~/.vim/vimbackup
 set expandtab
 set number
 set smartcase
