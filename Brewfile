@@ -6,6 +6,9 @@ install boot2docker
 install keychain
 install tmux
 
+brew tap homebrew/binary
+brew install packer
+
 tap phinze/homebrew-cask
 install brew-cask
 
