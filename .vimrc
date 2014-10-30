@@ -129,6 +129,9 @@ endif
 "let buftabs_only_basename = 1
 "let buftabs_in_statusline = 1
 " }}}
+" {{{colorschema
+NeoBundle 'w0ng/vim-hybrid'
+" }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 "
 :source $VIMRUNTIME/macros/matchit.vim
@@ -149,17 +152,19 @@ set smartcase
 set smarttab
 set wildmenu
 set nobackup
+set noswapfile
 set lazyredraw
 set laststatus=2
 set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set path+=~/hs/**,~/gws/poipoi_enchant_self/**
+set path+=~/gws/infra/ckvs_build/ckvs/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
 set shiftwidth=4
 set tabstop=4
+set tags=.git/tags,.tags,./tags,tags
 
 
 " 対応するカッコの表示をしない
@@ -228,6 +233,7 @@ nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
 nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
 " }}}
 " {{{ colorschema
+autocmd ColorScheme * highlight LineNr ctermfg=239
 set background=dark
 "let g:solarized_termtrans=1
 "colorscheme solarized
