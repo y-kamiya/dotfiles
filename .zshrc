@@ -16,6 +16,8 @@ export LANG=ja_JP.UTF-8
 # cdを省略
 setopt auto_cd
 
+setopt extended_glob
+
 # for brew
 PATH=~/Library/Haskell/bin:/usr/local/bin:$PATH
 
@@ -34,6 +36,7 @@ alias ll="ls -l"
 alias ivm="vim"
 
 export de='develop'
+export fo='forked'
 
 # ssh-agent
 #. ~/.keychain/$HOST-sh
@@ -41,7 +44,7 @@ export de='develop'
 exceptedFiles='compiled_*'
 function find-grep() { find . -print0 -type f ! -name $exceptedFiles -o -name .git -prune -o -name dist -prune -o -name build -prune | xargs -0 grep -n --binary-files=without-match "$@" 2> /dev/null }
 function find:() { find . -name "$@" }
-function col() { awk -v num=$1 '{print $num}' }
+function getcol() { awk -v num=$1 '{print $num}' }
 function gco() { git branch | grep $1 | xargs git checkout }
 function gco-a() { git branch -a | grep $1 | grep remote | cut'/' -f3- | xargs git checkout }
 function gd() { git branch | grep $1 | xargs git branch -D }
