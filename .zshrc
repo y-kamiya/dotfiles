@@ -19,7 +19,9 @@ setopt auto_cd
 setopt extended_glob
 
 # for brew
-PATH=~/Library/Haskell/bin:/usr/local/bin:$PATH
+PATH=~/usr/local/bin:$PATH
+# for haskell
+PATH=~$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 
 # aliasの設定
 case ${OSTYPE} in
