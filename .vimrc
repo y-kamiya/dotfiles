@@ -83,6 +83,7 @@ endfunction
 
 "NeoBundleLazy 'pbrisbin/html-template-syntax', { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'eagletmt/neco-ghc'            , { 'autoload': {'filetypes': ['haskell']} }
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['haskell']} }
 "NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
 "NeoBundleLazy 'ujihisa/ref-hoogle'           , { 'autoload': {'filetypes': ['haskell']} }

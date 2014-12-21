@@ -21,7 +21,7 @@ setopt extended_glob
 # for brew
 PATH=~/usr/local/bin:$PATH
 # for haskell
-PATH=~$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
+PATH=$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 
 # aliasの設定
 case ${OSTYPE} in
