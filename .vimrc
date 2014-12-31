@@ -49,6 +49,7 @@ nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
 nnoremap [unite]r :<C-u>Unite<Space>register<CR>
 nnoremap [unite]R :<C-u>UniteResume<CR>
+let g:unite_enable_start_insert=1
 
 " }}}
 " {{{ neocomplcache
@@ -85,8 +86,8 @@ endfunction
 NeoBundleLazy 'eagletmt/neco-ghc'            , { 'autoload': {'filetypes': ['haskell']} }
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['haskell']} }
-"NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
-"NeoBundleLazy 'ujihisa/ref-hoogle'           , { 'autoload': {'filetypes': ['haskell']} }
+NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
+NeoBundleLazy 'ujihisa/ref-hoogle'           , { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'ujihisa/unite-haskellimport'  , { 'autoload': {'filetypes': ['haskell']} }
 nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>
 " for html coding
