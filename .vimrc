@@ -167,6 +167,8 @@ set pastetoggle=<F9>
 set shiftwidth=4
 set tabstop=4
 set tags=.git/tags,.tags,./tags,tags
+set display=lastline
+set pumheight=5
 
 
 " 対応するカッコの表示をしない
@@ -200,6 +202,7 @@ set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
 " {{{ key mappings
 inoremap <C-f> <Esc>
 
+inoremap Y y$
 
 nnoremap <silent> tc :tabnew<CR>
 nnoremap <silent> tk :tabclose<CR>
