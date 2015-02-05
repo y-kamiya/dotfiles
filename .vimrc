@@ -202,7 +202,7 @@ set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
 " {{{ key mappings
 inoremap <C-f> <Esc>
 
-inoremap Y y$
+nnoremap Y y$
 
 nnoremap <silent> tc :tabnew<CR>
 nnoremap <silent> tk :tabclose<CR>
