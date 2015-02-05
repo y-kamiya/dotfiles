@@ -37,6 +37,7 @@ esac
 alias la="ls -a"
 alias ll="ls -l"
 alias ivm="vim"
+alias va="vagrant"
 
 export de='develop'
 export fo='forked'
