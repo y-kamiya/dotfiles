@@ -204,6 +204,15 @@ inoremap <C-f> <Esc>
 
 nnoremap Y y$
 
+function! HighlightCursor()
+    set cursorline
+    set cursorcolumn
+    redraw
+    sleep 100ms
+    set nocursorcolumn
+    set nocursorline
+endfunction
+nnoremap <silent> <C-l> :call HighlightCursor()<CR>
 nnoremap <silent> tc :tabnew<CR>
 nnoremap <silent> tk :tabclose<CR>
 nnoremap <silent> ]t :tabnext<CR>
