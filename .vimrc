@@ -208,9 +208,10 @@ function! HighlightCursor()
     set cursorline
     set cursorcolumn
     redraw
-    sleep 100ms
+    sleep 50ms
     set nocursorcolumn
     set nocursorline
+    redraw
 endfunction
 nnoremap <silent> <C-l> :call HighlightCursor()<CR>
 nnoremap <silent> tc :tabnew<CR>
