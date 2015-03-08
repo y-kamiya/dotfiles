@@ -1,0 +1,6 @@
+imap <C-f> <Esc>
+nmap <C-n> :xccmd goForwardInHistoryByCommand<CR>
+nmap <C-p> :xccmd goBackInHistoryByCommand<CR>
+nmap <C-j><C-j> :xccmd jumpToNextCounterpart<CR>
+nmap <C-w><C-n> :xccmd moveKeyboardFocusToNextArea<CR>
+nmap <C-w><C-p> :xccmd moveKeyboardFocusToNextArea<CR>
