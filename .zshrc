@@ -20,6 +20,7 @@ setopt extended_glob
 
 # for brew
 PATH=~/usr/local/bin:$PATH
+
 # for haskell
 PATH=$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
@@ -41,6 +42,9 @@ alias va="vagrant"
 
 export de='develop'
 export fo='forked'
+
+zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
+zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incremental-pattern-search-forward
 
 # ssh-agent
 #. ~/.keychain/$HOST-sh
