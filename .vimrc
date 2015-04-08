@@ -134,6 +134,12 @@ endif
 " {{{colorschema
 NeoBundle 'w0ng/vim-hybrid'
 " }}}
+" {{{yanktmp
+NeoBundle 'vim-scripts/yanktmp.vim'
+nnoremap <silent> <Leader>ty :call YanktmpYank()<CR>
+nnoremap <silent> <Leader>tp :call YanktmpPaste_p()<CR>
+nnoremap <silent> <Leader>tP :call YanktmpPaste_P()<CR>
+" }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 "
 :source $VIMRUNTIME/macros/matchit.vim
