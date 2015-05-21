@@ -8,8 +8,9 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -142,6 +143,8 @@ nnoremap <silent> <Leader>tP :call YanktmpPaste_P()<CR>
 " }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 "
+call neobundle#end()
+
 :source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
