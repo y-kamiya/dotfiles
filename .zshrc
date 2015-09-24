@@ -49,7 +49,7 @@ zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incr
 # ssh-agent
 #. ~/.keychain/$HOST-sh
 
-exceptedFiles='compiled_*'
+exceptedFiles='compiled_* db'
 function find-grep() { find . -print0 -type f ! -name $exceptedFiles -o -name .git -prune -o -name dist -prune -o -name build -prune | xargs -0 grep -n --binary-files=without-match "$@" 2> /dev/null }
 function find:() { find . -name "$@" }
 function getcol() { awk -v num=$1 '{print $num}' }

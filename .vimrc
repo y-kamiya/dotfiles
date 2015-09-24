@@ -122,12 +122,16 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'vim-scripts/gtags.vim'
 "}}}
 " {{{ vim-php-cs-fixer, vdebug
-let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
-if executable(s:fixer)
-    NeoBundleLazy 'joonty/vdebug'            , { 'autoload': {'commands': ['php']} } 
-    NeoBundleLazy 'stephpy/vim-php-cs-fixer' , { 'autoload': {'commands': ['php']} } 
-    let g:php_cs_fixer_path = s:fixer
-endif
+" let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
+" if executable(s:fixer)
+    NeoBundleLazy 'joonty/vdebug'            , { 'autoload': {'filetypes': ['php']} } 
+    let g:vdebug_options = {
+    \   'path_maps': { '/synced_folders/rpg-server': '/usr/local/funzio/cc-server' }
+    \ , 'ide_key': ''
+    \}
+    " NeoBundleLazy 'stephpy/vim-php-cs-fixer' , { 'autoload': {'commands': ['php']} } 
+    " let g:php_cs_fixer_path = s:fixer
+" endif
 " }}}
 " {{{ buftabs
 "NeoBundle 'buftabs'
