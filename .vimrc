@@ -44,12 +44,15 @@ endfunction
 nnoremap [unite] <Nop>
 nmap <Leader>f [unite]
 " mappings
-nnoremap [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
-nnoremap [unite]r :<C-u>Unite<Space>register<CR>
-nnoremap [unite]R :<C-u>UniteResume<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]y :<C-u>Unite<Space>history/yank<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
+nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
+nnoremap <silent> [unite]R :<C-u>UniteResume<CR>
+nnoremap <silent> [unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]Rs  :<C-u>UniteResume search-buffer<CR>
 let g:unite_enable_start_insert=1
 
 " }}}
@@ -141,6 +144,10 @@ nnoremap <silent> <Leader>ty :call YanktmpYank()<CR>
 nnoremap <silent> <Leader>tp :call YanktmpPaste_p()<CR>
 nnoremap <silent> <Leader>tP :call YanktmpPaste_P()<CR>
 " }}}
+" {{{ag
+NeoBundle 'rking/ag.vim'
+" }}}
+
 "NeoBundle 'chazmcgarvey/vimcoder'
 "
 call neobundle#end()
