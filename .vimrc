@@ -52,7 +52,10 @@ nnoremap <silent> [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
 nnoremap <silent> [unite]R :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-let g:unite_enable_start_insert=1
+
+au FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
+
+let g:unite_enable_start_insert=0
 
 " }}}
 " {{{ neocomplcache
@@ -180,7 +183,7 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set path+=~/gws/infra/ckvs_build/ckvs/**
+" set path+=~/gws/infra/ckvs_build/ckvs/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
 set shiftwidth=4
