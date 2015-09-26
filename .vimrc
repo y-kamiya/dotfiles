@@ -58,6 +58,14 @@ au FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
 let g:unite_enable_start_insert=0
 
 " }}}
+" {{{ vimfiler
+NeoBundle 'Shougo/vimfiler'
+let vimfiler_as_default_explorer = 1
+" vimfiler prefix key
+nnoremap [vimfiler] <Nop>
+nmap <Leader>f [vimfiler]
+noremap <silent> [vimfiler] :VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+" }}}
 " {{{ neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 let s:bundle = neobundle#get("neocomplcache")
