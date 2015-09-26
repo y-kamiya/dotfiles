@@ -161,6 +161,15 @@ nnoremap <silent> <Leader>tP :call YanktmpPaste_P()<CR>
 " {{{ag
 NeoBundle 'rking/ag.vim'
 " }}}
+" {{{vimshell
+NeoBundle 'Shougo/vimshell.vim'
+" vimfiler prefix key
+nnoremap [vimshell] <Nop>
+nmap <Leader>s [vimshell]
+nnoremap <silent> [vimshell] :VimShell<CR>
+nnoremap <silent> [vimshell]h :VimShellInteractive ghci<CR>
+nnoremap <silent> [vimshell]s <S-v>:VimShellSendString<CR>
+" }}}
 
 "NeoBundle 'chazmcgarvey/vimcoder'
 "
