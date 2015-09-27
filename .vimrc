@@ -22,23 +22,22 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 " }}}
 " {{{ unite
-NeoBundleLazy 'Shougo/unite.vim', {
-    \ 'autoload': { 'commands': ['Unite'] }
-\}
+NeoBundleLazy 'Shougo/unite.vim',  { 'autoload': { 'commands': ['Unite'] } }
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
     NeoBundle 'Shougo/neomru.vim'
-    let g:unite_source_grep_max_candidates = 200
+    " let g:unite_source_grep_max_candidates = 200
     
     if executable('ag')
         " Use ag in unite grep source.
         let g:unite_source_grep_command = 'ag'
-        let g:unite_source_grep_recursive_opt = 'HRn'
+        let g:unite_source_grep_recursive_opt = ''
         let g:unite_source_grep_default_opts =
         \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
         \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     endif
 endfunction
+unlet s:bundle
  
 " unite prefix key
 nnoremap [unite] <Nop>
