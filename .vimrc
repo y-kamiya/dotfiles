@@ -2,6 +2,10 @@ let mapleader=" "
 
 set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
 
+augroup myvimrc
+    autocmd!
+augroup END
+
 " {{{ NeoBundle basic setting
 set nocompatible
 filetype off
@@ -52,7 +56,7 @@ nnoremap <silent> [unite]R :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
-au FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
+autocmd myvimrc FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
 
 let g:unite_enable_start_insert=0
 
@@ -214,25 +218,28 @@ let loaded_matchparen = 1
 
 highlight CursorColumn term=reverse cterm=reverse
 
+augroup myvimrc
+    autocmd BufRead,BufNewFile *.ctp set filetype=php
+    autocmd BufRead,BufNewFile *.html set filetype=php
+    autocmd BufRead,BufNewFile *.tpl set filetype=html
+    autocmd BufRead,BufNewFile *.as set filetype=javascript
 
-au BufRead,BufNewFile *.ctp set filetype=php
-au BufRead,BufNewFile *.html set filetype=php
-au BufRead,BufNewFile *.tpl set filetype=html
-au BufRead,BufNewFile *.as set filetype=javascript
+    "autocmd BufNewFile *.tpl 0r ~/.vim/template/template.tpl
+    "autocmd BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
 
-"au BufNewFile *.tpl 0r ~/.vim/template/template.tpl
-"au BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
+    " haskell
+    autocmd BufRead,BufNewFile *.hs  setlocal sw=2 ts=2
+    autocmd BufRead,BufNewFile *.hamlet  setf hamlet
+    autocmd BufRead,BufNewFile *.cassius setf cassius
+    autocmd BufRead,BufNewFile *.lucius  setf lucius
+    autocmd BufRead,BufNewFile *.julius  setf julius
 
-" haskell
-au BufRead,BufNewFile *.hs  set sw=2 ts=2
-au BufRead,BufNewFile *.hamlet  setf hamlet
-au BufRead,BufNewFile *.cassius setf cassius
-au BufRead,BufNewFile *.lucius  setf lucius
-au BufRead,BufNewFile *.julius  setf julius
+    " autocmd BufWritePre * %s/\s\+$//e
+augroup END
 
 " {{{  go
-au BufRead,BufNewFile *.go set noexpandtab
-au BufWritePre *.go Fmt
+autocmd myvimrc BufRead,BufNewFile *.go set noexpandtab
+autocmd myvimrc BufWritePre *.go Fmt
 let g:gofmt_command = 'goimports'
 set rtp+=${GOROOT}/misc/vim
 set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
@@ -286,7 +293,7 @@ nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
 nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
 " }}}
 " {{{ colorschema
-autocmd ColorScheme * highlight LineNr ctermfg=239
+autocmd myvimrc ColorScheme * highlight LineNr ctermfg=239
 set background=dark
 "let g:solarized_termtrans=1
 "colorscheme solarized
