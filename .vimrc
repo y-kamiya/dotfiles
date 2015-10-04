@@ -174,8 +174,11 @@ nnoremap <silent> [vimshell]h :VimShellInteractive ghci<CR>
 nnoremap <silent> [vimshell]s <S-v>:VimShellSendString<CR>
 " }}}
 
+" {{{automkdir
+NeoBundle "y-kamiya/automkdir.vim"
+" }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
-"
+
 call neobundle#end()
 
 :source $VIMRUNTIME/macros/matchit.vim
@@ -211,6 +214,7 @@ set tabstop=4
 set tags=.git/tags,.tags,./tags,tags
 set display=lastline
 set pumheight=5
+set virtualedit+=block
 
 
 " 対応するカッコの表示をしない
@@ -258,7 +262,7 @@ function! HighlightCursor()
     set nocursorline
     redraw
 endfunction
-nnoremap <silent> <C-l> :call HighlightCursor()<CR>
+nnoremap <silent> <C-l> :noh<CR>:call HighlightCursor()<CR>
 nnoremap <silent> tc :tabnew<CR>
 nnoremap <silent> tk :tabclose<CR>
 nnoremap <silent> ]t :tabnext<CR>
