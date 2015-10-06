@@ -31,7 +31,7 @@ let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
     NeoBundle 'Shougo/neomru.vim'
     " let g:unite_source_grep_max_candidates = 200
-    
+
     if executable('ag')
         " Use ag in unite grep source.
         let g:unite_source_grep_command = 'ag'
@@ -42,7 +42,7 @@ function! s:bundle.hooks.on_source(bundle)
     endif
 endfunction
 unlet s:bundle
- 
+
 " unite prefix key
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
@@ -67,16 +67,17 @@ let vimfiler_as_default_explorer = 1
 " vimfiler prefix key
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
-noremap <silent> [vimfiler] :VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+noremap <silent> [vimfiler] :VimFilerBufferDir -split -simple -winwidth=40 -no-quit<CR>
 " }}}
 " {{{ neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 let s:bundle = neobundle#get("neocomplcache")
 function! s:bundle.hooks.on_source(bundle)
   let g:neocomplcache_enable_at_startup = 1
-	let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_enable_smart_case = 1
   let g:neocomplcache_max_list = 5
 endfunction
+unlet s:bundle
 " }}}
 " {{{ lightline
 NeoBundle 'itchyny/lightline.vim'
@@ -122,8 +123,8 @@ NeoBundle 'scrooloose/syntastic'
 "let g:indent_guides_guide_size = 1
 " }}}
 "{{{ vim-fugitive
-NeoBundleLazy 'tpope/vim-fugitive', { 
-      \'autoload': {'commands': ['Gblame']}, 
+NeoBundleLazy 'tpope/vim-fugitive', {
+      \'autoload': {'commands': ['Gblame']},
       \'augroup' : 'fugitive',
       \}
 let s:bundle = neobundle#get('vim-fugitive')
@@ -138,12 +139,12 @@ NeoBundle 'vim-scripts/gtags.vim'
 " {{{ vim-php-cs-fixer, vdebug
 " let s:fixer = expand('~/app/vendor/bin/php-cs-fixer')
 " if executable(s:fixer)
-    NeoBundleLazy 'joonty/vdebug'            , { 'autoload': {'filetypes': ['php']} } 
+    NeoBundleLazy 'joonty/vdebug'            , { 'autoload': {'filetypes': ['php']} }
     let g:vdebug_options = {
     \   'path_maps': { '/synced_folders/rpg-server': '/usr/local/funzio/cc-server' }
     \ , 'ide_key': ''
     \}
-    " NeoBundleLazy 'stephpy/vim-php-cs-fixer' , { 'autoload': {'commands': ['php']} } 
+    " NeoBundleLazy 'stephpy/vim-php-cs-fixer' , { 'autoload': {'commands': ['php']} }
     " let g:php_cs_fixer_path = s:fixer
 " endif
 " }}}
@@ -172,6 +173,25 @@ nmap <Leader>s [vimshell]
 nnoremap <silent> [vimshell] :VimShell<CR>
 nnoremap <silent> [vimshell]h :VimShellInteractive ghci<CR>
 nnoremap <silent> [vimshell]s <S-v>:VimShellSendString<CR>
+" }}}
+" {{{vim-easy-align
+NeoBundle 'junegunn/vim-easy-align'
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+" }}}
+" {{{memolist.vim
+NeoBundleLazy 'glidenote/memolist.vim', {
+    \ 'autoload': { 'commands': ['MemoNew','MemoList','MemoGrep'] }
+    \}
+let s:bundle = neobundle#get("memolist.vim")
+function! s:bundle.hooks.on_source(bundle)
+    let g:memolist_vimfiler = 1
+    let g:memolist_path = expand('~/.memo')
+endfunction
+unlet s:bundle
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
 " }}}
 
 " {{{automkdir
