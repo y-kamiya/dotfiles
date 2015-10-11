@@ -31,6 +31,12 @@ let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
     NeoBundle 'Shougo/neomru.vim'
     " let g:unite_source_grep_max_candidates = 200
+    let g:unite_enable_start_insert = 0
+    let g:unite_source_bookmark_directory = expand('~/.unite/bookmark')
+
+    " call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
+
+    autocmd myvimrc FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
 
     if executable('ag')
         " Use ag in unite grep source.
@@ -48,6 +54,7 @@ nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 " mappings
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]c :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]y :<C-u>Unite<Space>history/yank<CR>
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
@@ -56,9 +63,6 @@ nnoremap <silent> [unite]R :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
-autocmd myvimrc FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
-
-let g:unite_enable_start_insert=0
 
 " }}}
 " {{{ vimfiler
@@ -192,6 +196,10 @@ unlet s:bundle
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
+" }}}
+" {{{ctrlp.vim
+NeoBundle 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<Leader>p'
 " }}}
 
 " {{{automkdir
