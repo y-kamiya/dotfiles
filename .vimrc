@@ -223,11 +223,44 @@ endfunction
 unlet s:bundle
 nmap <silent> <Leader>rr <Plug>(quickrun)
 " }}}
+" {{{linediff.vim
+NeoBundleLazy 'AndrewRadev/linediff.vim', { 
+    \ 'autoload': { 'commands': ['Linediff'] }
+    \}
+" }}}
+" {{{switch.vim
+NeoBundleLazy 'AndrewRadev/switch.vim', { 
+    \ 'autoload': { 'commands': ['Switch'] }
+    \}
+let g:switch_mapping = ''
+let g:switch_custom_definitions = [
+\   [],
+\]
+" there are bugs
+" let g:variable_style_switch_definitions = [
+"       \   {
+"       \     '\<[a-z0-9]\+_\k\+\>': {
+"       \       '_\(.\)': '\U\1'
+"       \     },
+"       \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+"       \       '\([A-Z]\)': '_\l\1'
+"       \     },
+"       \   }
+"       \ ]
+nnoremap <silent> <Leader>sw :Switch<CR>
+" nnoremap <silent> <Leader>sv :call switch#Switch(g:variable_style_switch_definitions)<CR>
+" }}}
+"NeoBundle 'chazmcgarvey/vimcoder'
 
+" experiments
+" {{{vim-expand-region.vim
+" NeoBundle 'terryma/vim-expand-region'
+" }}}
+
+" my plugins
 " {{{automkdir
 NeoBundle "y-kamiya/automkdir.vim"
 " }}}
-"NeoBundle 'chazmcgarvey/vimcoder'
 
 call neobundle#end()
 
