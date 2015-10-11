@@ -106,7 +106,7 @@ endfunction
 
 "NeoBundleLazy 'pbrisbin/html-template-syntax', { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'eagletmt/neco-ghc'            , { 'autoload': {'filetypes': ['haskell']} }
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd myvimrc FileType haskell setlocal omnifunc=necoghc#omnifunc
 NeoBundleLazy 'eagletmt/ghcmod-vim'          , { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'thinca/vim-ref'               , { 'autoload': {'filetypes': ['haskell']} }
 NeoBundleLazy 'ujihisa/ref-hoogle'           , { 'autoload': {'filetypes': ['haskell']} }
@@ -200,6 +200,28 @@ nnoremap <Leader>mg  :MemoGrep<CR>
 " {{{ctrlp.vim
 NeoBundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<Leader>p'
+" }}}
+" {{{quickrun.vim
+NeoBundleLazy 'thinca/vim-quickrun', {
+    \ 'autoload': { 'commands': ['QuickRun'], 'mappings': '<Plug>' }
+    \}
+let s:bundle = neobundle#get("vim-quickrun")
+function! s:bundle.hooks.on_source(bundle)
+    let g:quickrun_config = {
+    \   '_': {
+    \     'debug': 'ss',
+    \     'input': '=%{b:input}', 'cmdopt': '%{b:cmdopt}', 'args': '%{b:args}',
+    \     'runner': 'vimproc',
+    \     'runner/vimproc/updatetime': 50,
+    \     'outputter/buffer/close_on_empty' : 1,
+    \   },
+    \   'haskell': {
+    \       'command': 'runghc',
+    \   },
+    \}
+endfunction
+unlet s:bundle
+nmap <silent> <Leader>rr <Plug>(quickrun)
 " }}}
 
 " {{{automkdir
