@@ -233,22 +233,28 @@ NeoBundleLazy 'AndrewRadev/switch.vim', {
     \ 'autoload': { 'commands': ['Switch'] }
     \}
 let g:switch_mapping = ''
+" switch single quoto to double
 let g:switch_custom_definitions = [
-\   [],
+\   {
+\       '''\(\k\+\)''': '"\1"',
+\       '"\(\k\+\)"': '''\1''',
+\   },
 \]
-" there are bugs
-" let g:variable_style_switch_definitions = [
-"       \   {
-"       \     '\<[a-z0-9]\+_\k\+\>': {
-"       \       '_\(.\)': '\U\1'
-"       \     },
-"       \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
-"       \       '\([A-Z]\)': '_\l\1'
-"       \     },
-"       \   }
-"       \ ]
-nnoremap <silent> <Leader>sw :Switch<CR>
-" nnoremap <silent> <Leader>sv :call switch#Switch(g:variable_style_switch_definitions)<CR>
+" switch snake case to camel case
+let g:variable_style_switch_definitions = [
+\   {
+\     '\<[a-z0-9]\+_\k\+\>': {
+\       '_\(.\)': '\U\1'
+\     },
+\     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+\       '\([A-Z]\)': '_\l\1'
+\     },
+\   }
+\]
+nnoremap [switch.vim] <Nop>
+nmap <Leader>sw [switch.vim]
+nnoremap <silent> [switch.vim] :Switch<CR>
+nnoremap <silent> [switch.vim]w :call switch#Switch(g:variable_style_switch_definitions)<CR>
 " }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 
@@ -263,7 +269,6 @@ NeoBundle "y-kamiya/automkdir.vim"
 " }}}
 
 call neobundle#end()
-
 :source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
