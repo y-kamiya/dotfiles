@@ -256,6 +256,20 @@ nmap <Leader>sw [switch.vim]
 nnoremap <silent> [switch.vim] :Switch<CR>
 nnoremap <silent> [switch.vim]w :call switch#Switch(g:variable_style_switch_definitions)<CR>
 " }}}
+" {{{vim-submode
+NeoBundle 'kana/vim-submode'
+let s:bundle = neobundle#get("vim-submode")
+function! s:bundle.hooks.on_source(bundle)
+    call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+    call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+    call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+    call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+    call submode#map('winsize', 'n', '', '>', '<C-w>>')
+    call submode#map('winsize', 'n', '', '<', '<C-w><')
+    call submode#map('winsize', 'n', '', '+', '<C-w>+')
+    call submode#map('winsize', 'n', '', '-', '<C-w>-')
+endfunction
+" }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 
 " experiments
