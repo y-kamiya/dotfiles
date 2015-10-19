@@ -257,7 +257,9 @@ nnoremap <silent> [switch.vim] :Switch<CR>
 nnoremap <silent> [switch.vim]w :call switch#Switch(g:variable_style_switch_definitions)<CR>
 " }}}
 " {{{vim-submode
-NeoBundle 'kana/vim-submode'
+NeoBundleLazy 'kana/vim-submode', {
+    \ 'autoload': { 'mappings': ['<C-w>>', '<C-w><', '<C-w>+', '<C-w>-'] }
+    \}
 let s:bundle = neobundle#get("vim-submode")
 function! s:bundle.hooks.on_source(bundle)
     call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
