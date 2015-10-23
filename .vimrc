@@ -66,8 +66,14 @@ nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 " }}}
 " {{{ vimfiler
-NeoBundle 'Shougo/vimfiler'
-let vimfiler_as_default_explorer = 1
+NeoBundle 'Shougo/vimfiler', {
+    \ 'depends': ['Shougo/unite.vim'],
+    \ 'autoload': { 'commands': ['VimFilerBufferDir'] },
+    \}
+let s:bundle = neobundle#get("vimfiler")
+function! s:bundle.hooks.on_source(bundle)
+    let vimfiler_as_default_explorer = 1
+endfunction
 " vimfiler prefix key
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
@@ -129,7 +135,7 @@ NeoBundle 'scrooloose/syntastic'
 "{{{ vim-fugitive
 NeoBundleLazy 'tpope/vim-fugitive', {
       \'autoload': {'commands': ['Gblame']},
-      \'augroup' : 'fugitive',
+      \'augroup' : 'myvimrc',
       \}
 let s:bundle = neobundle#get('vim-fugitive')
 function! s:bundle.hooks.on_post_source(bundle)
@@ -170,11 +176,14 @@ nnoremap <silent> <Leader>tP :call YanktmpPaste_P()<CR>
 NeoBundle 'rking/ag.vim'
 " }}}
 " {{{vimshell
-NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/vimshell.vim', {
+    \   'autoload' : { 'commands' : [ 'VimShellBufferDir', 'VimShellInteractive' ] },
+    \   'depends': [ 'Shougo/vimproc' ],
+    \}
 " vimfiler prefix key
 nnoremap [vimshell] <Nop>
 nmap <Leader>s [vimshell]
-nnoremap <silent> [vimshell] :VimShell<CR>
+nnoremap <silent> [vimshell] :VimShellBufferDir<CR>
 nnoremap <silent> [vimshell]h :VimShellInteractive ghci<CR>
 nnoremap <silent> [vimshell]s <S-v>:VimShellSendString<CR>
 " }}}
