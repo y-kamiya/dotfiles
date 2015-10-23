@@ -42,6 +42,7 @@ alias va="vagrant"
 
 export de='develop'
 export fo='forked'
+export up='upstream'
 
 zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
 zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incremental-pattern-search-forward
