@@ -27,9 +27,9 @@ NeoBundle 'Shougo/vimproc', {
 " }}}
 " {{{ unite
 NeoBundleLazy 'Shougo/unite.vim',  { 'autoload': { 'commands': ['Unite'] } }
+NeoBundle 'Shougo/neomru.vim'
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
-    NeoBundle 'Shougo/neomru.vim'
     " let g:unite_source_grep_max_candidates = 200
     let g:unite_enable_start_insert = 0
     let g:unite_source_bookmark_directory = expand('~/.unite/bookmark')
