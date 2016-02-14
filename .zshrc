@@ -19,7 +19,7 @@ setopt auto_cd
 setopt extended_glob
 
 # for brew
-PATH=~/usr/local/bin:$PATH
+PATH=~/usr/local/bin:/usr/local/sbin:$PATH
 
 # for haskell
 PATH=$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
