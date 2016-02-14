@@ -8,6 +8,6 @@ set smartindent
 inoremap <C-f> <Esc>
 
 nnoremap Y y$
-nnoremap <silent> ]t :tabnext<CR>
-nnoremap <silent> [t :tabprevious<CR>
-nnoremap <silent> <C-l> :noh<CR>:call HighlightCursor()<CR>
+nnoremap <silent> ]t gt
+nnoremap <silent> [t gT
+nnoremap <silent> <C-l> :noh<CR>
