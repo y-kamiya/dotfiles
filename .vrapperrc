@@ -1,0 +1,13 @@
+set imd
+set contentassistmode
+set hlsearch
+set expandtab
+set number
+set smartindent
+
+inoremap <C-f> <Esc>
+
+nnoremap Y y$
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> <C-l> :noh<CR>:call HighlightCursor()<CR>
