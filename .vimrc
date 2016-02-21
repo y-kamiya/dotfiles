@@ -300,6 +300,13 @@ let g:choosewin_blink_on_land      = 0
 let g:choosewin_statusline_replace = 0
 let g:choosewin_tabline_replace    = 0
 " }}}
+" {{{vim-scala
+NeoBundleLazy 'derekwyatt/vim-scala', {
+    \ 'autoload': {'filetypes': ['scala']}
+    \}
+autocmd myvimrc BufNewFile,BufRead *.scala setf scala
+
+" }}}
 "NeoBundle 'chazmcgarvey/vimcoder'
 
 " experiments
