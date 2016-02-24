@@ -133,10 +133,11 @@ NeoBundle 'scrooloose/syntastic'
 "let g:indent_guides_guide_size = 1
 " }}}
 "{{{ vim-fugitive
-NeoBundleLazy 'tpope/vim-fugitive', {
-      \'autoload': {'commands': ['Gblame']},
-      \'augroup' : 'myvimrc',
-      \}
+NeoBundle 'tpope/vim-fugitive'
+" NeoBundleLazy 'tpope/vim-fugitive', {
+"       \'autoload': {'commands': ['Gblame', 'Gedit']},
+"       \'augroup' : 'myvimrc',
+"       \}
 let s:bundle = neobundle#get('vim-fugitive')
 function! s:bundle.hooks.on_post_source(bundle)
     doautoall fugitive BufNewFile
