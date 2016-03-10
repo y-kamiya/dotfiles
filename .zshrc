@@ -39,6 +39,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias ivm="vim"
 alias va="vagrant"
+alias cb="git rev-parse --abbrev-ref HEAD"
 
 export de='develop'
 export fo='forked'
