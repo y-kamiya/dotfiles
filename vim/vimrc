@@ -48,6 +48,11 @@ endif
 
  " }}}
 
+if !has('vim_starting')
+  call dein#call_hook('source')
+  call dein#call_hook('post_source')
+endif
+
 :source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on

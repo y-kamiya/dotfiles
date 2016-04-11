@@ -96,7 +96,7 @@ if = 0
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
-on_add = '''
+hook_add = '''
   let g:switch_mapping = ''
   " switch single quoto to double
   let g:switch_custom_definitions = [
@@ -139,7 +139,7 @@ hook_source = '''
 [[plugins]]
 repo = 't9md/vim-choosewin'
 on_map = [['n', '<Plug>']]
-on_add = 'nmap  <Leader>w  <Plug>(choosewin)'
+hook_add = 'nmap  <Leader>w  <Plug>(choosewin)'
 hook_source = '''
   let g:choosewin_overlay_enable = 1
   let g:choosewin_overlay_clear_multibyte = 1
@@ -159,7 +159,7 @@ hook_source = '''
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_cmd = ['scala']
-on_add = 'autocmd myvimrc BufNewFile,BufRead *.scala setf scala'
+hook_source = 'autocmd myvimrc BufNewFile,BufRead *.scala setf scala'
 
 [[plugins]]
 repo = 'vim-scripts/yanktmp.vim'
