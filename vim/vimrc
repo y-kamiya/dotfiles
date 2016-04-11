@@ -1,0 +1,174 @@
+let mapleader=" "
+
+set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
+
+" vi compatibility
+if !&compatible
+  set nocompatible
+endif
+
+" Prepare .vim dir
+let s:vimdir = expand("~/.vim")
+if has("vim_starting")
+  if ! isdirectory(s:vimdir)
+    call system("mkdir " . s:vimdir)
+  endif
+endif
+
+augroup myvimrc
+    autocmd!
+augroup END
+
+" {{{ dein
+" Set dein paths
+"
+let s:dein_dir = s:vimdir . '/dein'
+
+if &runtimepath !~# '/dein.vim'
+  let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, ['~/.vim/rc/dein.toml', '~/.vim/rc/deinlazy.toml'])
+
+  call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
+ " }}}
+
+:source $VIMRUNTIME/macros/matchit.vim
+
+filetype plugin indent on
+syntax on
+
+
+set termencoding=utf-8
+" set fileencodings=iso-2021-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,euc-jp,eucjp-ms,cp932
+set title
+set smartindent
+"set backupdir=~/.vim/vimbackup
+"set directory=~/.vim/vimbackup
+set expandtab
+set number
+set smartcase
+set smarttab
+set wildmenu
+set nobackup
+set noswapfile
+set lazyredraw
+set laststatus=2
+set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
+set showmatch
+set hlsearch
+set foldmethod=marker
+" set path+=~/gws/infra/ckvs_build/ckvs/**
+set suffixesadd+=.php
+set pastetoggle=<F9>
+set shiftwidth=4
+set tabstop=4
+set tags=.git/tags,.tags,./tags,tags
+set display=lastline
+set pumheight=5
+set virtualedit+=block
+
+
+" 対応するカッコの表示をしない
+let loaded_matchparen = 1
+
+highlight CursorColumn term=reverse cterm=reverse
+
+augroup myvimrc
+    autocmd BufRead,BufNewFile *.ctp set filetype=php
+    autocmd BufRead,BufNewFile *.html set filetype=php
+    autocmd BufRead,BufNewFile *.tpl set filetype=html
+    autocmd BufRead,BufNewFile *.as set filetype=javascript
+
+    "autocmd BufNewFile *.tpl 0r ~/.vim/template/template.tpl
+    "autocmd BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
+
+    " haskell
+    autocmd BufRead,BufNewFile *.hs  setlocal sw=2 ts=2
+    autocmd BufRead,BufNewFile *.hamlet  setf hamlet
+    autocmd BufRead,BufNewFile *.cassius setf cassius
+    autocmd BufRead,BufNewFile *.lucius  setf lucius
+    autocmd BufRead,BufNewFile *.julius  setf julius
+
+    " autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+" {{{  go
+autocmd myvimrc BufRead,BufNewFile *.go set noexpandtab
+autocmd myvimrc BufWritePre *.go Fmt
+let g:gofmt_command = 'goimports'
+set rtp+=${GOROOT}/misc/vim
+set rtp^=${GOPATH}/src/github.com/nsf/gocode/vim
+" }}}
+" {{{ key mappings
+inoremap <C-f> <Esc>
+
+nnoremap Y y$
+
+function! HighlightCursor()
+    set cursorline
+    set cursorcolumn
+    redraw
+    sleep 50ms
+    set nocursorcolumn
+    set nocursorline
+    redraw
+endfunction
+nnoremap <silent> <C-l> :noh<CR>:call HighlightCursor()<CR>
+nnoremap <silent> tc :tabnew<CR>
+nnoremap <silent> tk :tabclose<CR>
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [t :tabprevious<CR>
+
+nnoremap <silent> bk :bd<CR>
+nnoremap <silent> ]b :bn<CR>
+nnoremap <silent> [b :bp<CR>
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <F6> :<C-u>source $MYVIMRC<CR>
+nnoremap vim :<C-u>edit $MYVIMRC<CR>
+
+" move view point to center when search words
+nnoremap n nzz
+nnoremap N Nzz
+
+
+" search selected strings in visual mode
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+    let tmp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = tmp
+endfunction
+
+" show cursor position toggle
+nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
+nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
+" }}}
+" {{{ colorschema
+autocmd myvimrc ColorScheme * highlight LineNr ctermfg=239
+set background=dark
+"let g:solarized_termtrans=1
+"colorscheme solarized
+colorscheme hybrid
+" }}}
+
+
