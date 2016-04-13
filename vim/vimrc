@@ -87,7 +87,8 @@ set tags=.git/tags,.tags,./tags,tags
 set display=lastline
 set pumheight=5
 set virtualedit+=block
-
+set timeoutlen=300
+set ttimeoutlen=50
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
