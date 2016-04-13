@@ -136,16 +136,14 @@ function! HighlightCursor()
     redraw
 endfunction
 nnoremap <silent> <C-l> :noh<CR>:call HighlightCursor()<CR>
-nnoremap <silent> tc :tabnew<CR>
-nnoremap <silent> tk :tabclose<CR>
+" nnoremap <silent> tc :tabnew<CR>
+" nnoremap <silent> tk :tabclose<CR>
 nnoremap <silent> ]t :tabnext<CR>
 nnoremap <silent> [t :tabprevious<CR>
 
-nnoremap <silent> bk :bd<CR>
+" nnoremap <silent> bk :bd<CR>
 nnoremap <silent> ]b :bn<CR>
 nnoremap <silent> [b :bp<CR>
-vnoremap < <gv
-vnoremap > >gv
 
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 nnoremap vim :<C-u>edit $MYVIMRC<CR>
@@ -154,6 +152,12 @@ nnoremap vim :<C-u>edit $MYVIMRC<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
+" show cursor position toggle
+nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
+nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
+
+vnoremap < <gv
+vnoremap > >gv
 
 " search selected strings in visual mode
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -165,9 +169,9 @@ function! s:VSetSearch()
     let @s = tmp
 endfunction
 
-" show cursor position toggle
-nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
-nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
 " }}}
 " {{{ colorschema
 autocmd myvimrc ColorScheme * highlight LineNr ctermfg=239
