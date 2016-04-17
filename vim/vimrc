@@ -7,6 +7,11 @@ if !&compatible
   set nocompatible
 endif
 
+augroup myvimrc
+    autocmd!
+augroup END
+
+" {{{ dein
 " Prepare .vim dir
 let s:vimdir = expand("~/.vim")
 if has("vim_starting")
@@ -15,13 +20,6 @@ if has("vim_starting")
   endif
 endif
 
-augroup myvimrc
-    autocmd!
-augroup END
-
-" {{{ dein
-" Set dein paths
-"
 let s:dein_dir = s:vimdir . '/dein'
 
 if &runtimepath !~# '/dein.vim'
@@ -46,12 +44,15 @@ if dein#check_install()
   call dein#install()
 endif
 
- " }}}
-
 if !has('vim_starting')
   call dein#call_hook('source')
   call dein#call_hook('post_source')
 endif
+
+augroup myvimrc
+  autocmd BufRead,BufNewFile dein\(lazy\)\?.toml set filetype=vim
+augroup END
+ " }}}
 
 :source $VIMRUNTIME/macros/matchit.vim
 
@@ -96,21 +97,8 @@ let loaded_matchparen = 1
 highlight CursorColumn term=reverse cterm=reverse
 
 augroup myvimrc
-    autocmd BufRead,BufNewFile *.ctp set filetype=php
-    autocmd BufRead,BufNewFile *.html set filetype=php
-    autocmd BufRead,BufNewFile *.tpl set filetype=html
-    autocmd BufRead,BufNewFile *.as set filetype=javascript
-
     "autocmd BufNewFile *.tpl 0r ~/.vim/template/template.tpl
     "autocmd BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
-
-    " haskell
-    autocmd BufRead,BufNewFile *.hs  setlocal sw=2 ts=2
-    autocmd BufRead,BufNewFile *.hamlet  setf hamlet
-    autocmd BufRead,BufNewFile *.cassius setf cassius
-    autocmd BufRead,BufNewFile *.lucius  setf lucius
-    autocmd BufRead,BufNewFile *.julius  setf julius
-
     " autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
