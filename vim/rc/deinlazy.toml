@@ -212,6 +212,7 @@ hook_source = '''
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 on_idle = 1
+if = 0
 hook_add = '''
   let g:precious_enable_switch_CursorMoved = {"*": 1}
 '''
@@ -219,37 +220,45 @@ hook_add = '''
 [[plugins]]
 repo = 'dag/vim2hs'
 on_ft = ['haskell']
+on_idle = 1
 hook_source = 'let g:haskell_conceal = 0'
 
 [[plugins]]
 repo = 'eagletmt/neco-ghc'
 on_ft = ['haskell']
+on_idle = 1
 hook_post_source = 'autocmd myvimrc FileType haskell setlocal omnifunc=necoghc#omnifunc'
 
 [[plugins]]
 repo = 'eagletmt/ghcmod-vim'
 on_ft = ['haskell']
+on_idle = 1
 
 [[plugins]]
 repo = 'thinca/vim-ref'
 on_ft = ['haskell']
+on_idle = 1
 
 [[plugins]]
 repo = 'ujihisa/ref-hoogle'
 on_ft = ['haskell']
+on_idle = 1
 
 [[plugins]]
 repo = 'ujihisa/unite-haskellimport'
 on_ft = ['haskell']
+on_idle = 1
 hook_add = 'nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['js']
+on_idle = 1
 
 [[plugins]]
 repo = 'briancollins/vim-jst'
 on_ft = ['js']
+on_idle = 1
 
 
 

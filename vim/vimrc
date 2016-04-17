@@ -50,7 +50,8 @@ if !has('vim_starting')
 endif
 
 augroup myvimrc
-  autocmd BufRead,BufNewFile dein\(lazy\)\?.toml set filetype=vim
+  autocmd BufRead,BufNewFile dein.toml set filetype=vim
+  autocmd BufRead,BufNewFile deinlazy.toml set filetype=vim
 augroup END
  " }}}
 
