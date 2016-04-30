@@ -260,6 +260,25 @@ repo = 'briancollins/vim-jst'
 on_ft = ['js']
 on_idle = 1
 
+[[plugins]]
+repo = 'mattn/webapi-vim'
+on_source = ['hateblo.vim']
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'moznion/hateblo.vim'
+depends = ['webapi-vim']
+on_cmd = ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList', 'HatebloUpdate', 'HatebloDelete']
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = ['PrevimOpen']
+on_ft = ['markdown']
+hook_add = '''
+  let g:previm_open_cmd = 'open -a Firefox'
+'''
+
 
 
 

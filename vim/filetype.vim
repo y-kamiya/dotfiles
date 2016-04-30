@@ -12,6 +12,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.cassius set filetype=cassius
   autocmd BufRead,BufNewFile *.lucius  set filetype=lucius
   autocmd BufRead,BufNewFile *.julius  set filetype=julius
+  autocmd BufRead,BufNewFile *.md  set filetype=markdown
 augroup END
 
 
