@@ -71,7 +71,10 @@ set expandtab
 set number
 set smartcase
 set smarttab
+set wildignore=*.zip
+set wildmode=longest,list,full
 set wildmenu
+set completeopt+=longest
 set nobackup
 set noswapfile
 set lazyredraw
