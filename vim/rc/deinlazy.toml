@@ -227,12 +227,21 @@ hook_source = 'let g:haskell_conceal = 0'
 repo = 'eagletmt/neco-ghc'
 on_ft = ['haskell']
 on_idle = 1
-hook_post_source = 'autocmd myvimrc FileType haskell setlocal omnifunc=necoghc#omnifunc'
+hook_add = '''
+  let g:haskellmode_completion_ghc = 0
+  autocmd myvimrc FileType haskell setlocal omnifunc=necoghc#omnifunc
+'''
 
 [[plugins]]
 repo = 'eagletmt/ghcmod-vim'
 on_ft = ['haskell']
 on_idle = 1
+hook_source = '''
+  noremap <silent> <Leader>ghi :GhcModTypeInsert<CR>
+  noremap <silent> <Leader>ghs :GhcModSplitFunCase<CR>
+  noremap <silent> <Leader>ght :GhcModType<CR>
+  noremap <silent> <Leader>ghc :GhcModTypeClear<CR>
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ref'

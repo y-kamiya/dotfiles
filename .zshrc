@@ -22,7 +22,7 @@ setopt extended_glob
 PATH=~/usr/local/bin:/usr/local/sbin:$PATH
 
 # for haskell
-PATH=$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
+PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
 
 # aliasの設定
