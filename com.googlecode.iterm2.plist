@@ -872,7 +872,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>A623508C-8EC1-4885-89EC-798560AE8CE5</string>
+	<string>8110BD23-BE20-4E95-BA74-30FFA358D496</string>
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
@@ -953,9 +953,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 120 924 485 0 0 1366 768 </string>
+	<string>269 110 924 485 0 0 1366 745 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1366 768 0 0 1366 768 </string>
+	<string>148 67 410 301 0 0 1366 745 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
