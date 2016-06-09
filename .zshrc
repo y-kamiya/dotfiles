@@ -11,7 +11,7 @@ autoload zmv
 alias zmv='noglob zmv -W '
 
 # encode
-export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 
 # cdを省略
 setopt auto_cd
@@ -88,3 +88,4 @@ SAVEHIST=10000
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
+
