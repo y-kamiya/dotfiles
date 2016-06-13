@@ -83,7 +83,6 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-" set path+=~/gws/infra/ckvs_build/ckvs/**
 set suffixesadd+=.php
 set pastetoggle=<F9>
 set shiftwidth=4
@@ -177,4 +176,5 @@ set background=dark
 colorscheme hybrid
 " }}}
 
+source $HOME/.vimrc.local
 
