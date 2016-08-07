@@ -119,7 +119,7 @@ hook_add = '''
   nnoremap [switch.vim] <Nop>
   nmap <Leader>sw [switch.vim]
   nnoremap <silent> [switch.vim] :Switch<CR>
-  nnoremap <silent> [switch.vim]w :call switch#Switch(g:variable_style_switch_definitions)<CR>
+  nnoremap <silent> [switch.vim]w :call switch#Switch(g:variable_style_switch_definitions, {})<CR>
 '''
 
 [[plugins]]
