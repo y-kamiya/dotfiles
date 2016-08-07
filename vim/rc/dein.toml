@@ -29,10 +29,20 @@ hook_add = '''
   set laststatus=2
   let g:lightline = {
         \ 'colorscheme': 'wombat',
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+        \ },
         \ 'component': {
         \   'readonly': '%{&readonly?"⭤":""}',
+        \ },
+        \ 'component_function': {
+        \   'fugitive': 'LightLineFugitive',
         \ }
     \ }
+  function! LightLineFugitive()
+    return exists('*fugitive#head') ? fugitive#head() : ''
+  endfunction
 '''
 
 [[plugins]]
