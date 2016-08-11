@@ -176,5 +176,9 @@ set background=dark
 colorscheme hybrid
 " }}}
 
+if has('nvim')
+  execute 'source' fnamemodify(expand('<sfile>'), ':h').'/rc/nvimrc.vim'
+endif
+
 source $HOME/.vimrc.local
 
