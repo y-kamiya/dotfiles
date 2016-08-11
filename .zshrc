@@ -13,9 +13,7 @@ alias zmv='noglob zmv -W '
 # encode
 export LC_ALL=ja_JP.UTF-8
 
-# cdを省略
 setopt auto_cd
-
 setopt extended_glob
 
 # for brew
@@ -25,7 +23,7 @@ PATH=~/usr/local/bin:/usr/local/sbin:$PATH
 PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
 
-# aliasの設定
+# alias
 case ${OSTYPE} in
     darwin*)
         alias ls="ls -G"
@@ -59,10 +57,7 @@ function gco() { git branch | grep $1 | xargs git checkout }
 function gco-a() { git branch -a | grep $1 | grep remote | cut'/' -f3- | xargs git checkout }
 function gd() { git branch | grep $1 | xargs git branch -D }
 
-###############################################
-##   プロンプトの表示設定                     #
-################################################
-
+# prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats '(%b)'
@@ -79,7 +74,7 @@ RPROMPT="%F{blue}%1v%f%{[32m%}[%~]%{[m%}"
 # tmux powerline
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# ヒストリの設定
+# history
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
