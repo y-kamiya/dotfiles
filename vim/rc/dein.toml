@@ -46,7 +46,14 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'neomake/neomake'
+hook_add = '''
+autocmd! BufWritePost * Neomake
+'''
+
+[[plugins]]
 repo = 'scrooloose/syntastic'
+if = 0
 hook_add = '''
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
