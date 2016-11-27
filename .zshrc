@@ -24,13 +24,22 @@ PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
 
 # alias
-case ${OSTYPE} in
-    darwin*)
-        alias ls="ls -G"
-        ;;
-    linux*)
-        alias ls="ls --color=auto"
-        ;;
+function ls_type() {
+    case ${OSTYPE} in
+        darwin*)
+            HAS_COREUTILS=$(brew list | grep '^coreutils$' | wc -l)
+            if [ 0 -eq $HAS_COREUTILS ]; then
+                echo 'darwin'
+            else
+                echo 'linux'
+            fi ;;
+        linux*) echo 'linux';;
+    esac
+}
+case `ls_type` in
+    darwin) alias ls="ls -G";;
+    linux)  alias ls="ls --color=auto";;
+    *) echo 'unknown type is found, `ls` has no color now'
 esac
 
 alias la="ls -a"
