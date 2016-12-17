@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ln -s ~/.tmux.conf ~/gws/dotfiles/.tmux.conf
-ln -s ~/.zshrc ~/gws/dotfiles/.zshrc
-ln -s ~/.vim ~/gws/dotfiles/vim
-ln -s ~/.vimrc ~/gws/dotfiles/.vimrc
+ln -s ~/gws/dotfiles/.tmux.conf ~/.tmux.conf 
+ln -s ~/gws/dotfiles/.zshrc     ~/.zshrc     
+ln -s ~/gws/dotfiles/vim        ~/.vim       
+ln -s ~/gws/dotfiles/.vimrc     ~/.vimrc     
