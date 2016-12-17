@@ -1,20 +1,91 @@
-update
-
-install global
-install ctags
-install boot2docker
-install keychain
-install tmux
-
-brew tap homebrew/binary
-brew install packer
-
-tap phinze/homebrew-cask
-install brew-cask
-
-cask install virtualbox
-cask install vagrant
-cask install kobito
-cask install totalterminal
-cask install alfred
-cask install google-japanese-ime
+tap 'caskroom/cask'
+tap 'homebrew/binary'
+tap 'homebrew/bundle'
+tap 'homebrew/core'
+tap 'homebrew/dupes'
+tap 'homebrew/fuse'
+tap 'homebrew/php'
+tap 'homebrew/versions'
+tap 'neovim/neovim'
+tap 'sanemat/font'
+cask 'osxfuse'
+brew 'android-sdk'
+brew 'ant'
+brew 'autoconf'
+brew 'autojump'
+brew 'automake'
+brew 'bison'
+brew 'ghc'
+brew 'cabal-install'
+brew 'libsigsegv'
+brew 'readline'
+brew 'clisp'
+brew 'cmake'
+brew 'ctags'
+brew 'git'
+brew 'docker'
+brew 'emacs'
+brew 'openssl'
+brew 'jpeg'
+brew 'libpng'
+brew 'libtiff'
+brew 'wxmac'
+brew 'erlang'
+brew 'freetype'
+brew 'fontconfig'
+brew 'gettext'
+brew 'libtool'
+brew 'fontforge'
+brew 'gibo'
+brew 'libffi'
+brew 'pcre'
+brew 'glib'
+brew 'global'
+brew 'gmp'
+brew 'gnu-sed'
+brew 'go'
+brew 'gradle'
+brew 'haskell-stack'
+brew 'htop-osx'
+brew 'icu4c'
+brew 'jq'
+brew 'lha'
+brew 'libevent'
+brew 'lynx'
+brew 'makedepend'
+brew 'mysql'
+brew 'nkf'
+brew 'nmap'
+brew 'node'
+brew 'packer'
+brew 'pidof'
+brew 'pixman'
+brew 'pkg-config'
+brew 'pyenv'
+brew 'ruby-build'
+brew 'rbenv'
+brew 'rbenv-gemset'
+brew 'rebar'
+brew 'sbt'
+brew 'scala'
+brew 'xz'
+brew 'the_silver_searcher'
+brew 'tmux'
+brew 'unixodbc'
+brew 'vim'
+brew 'homebrew/dupes/zlib'
+brew 'homebrew/fuse/ntfs-3g'
+brew 'homebrew/php/php56'
+brew 'homebrew/php/composer'
+brew 'homebrew/versions/android-ndk-r10e'
+brew 'neovim/neovim/neovim', args: ['HEAD']
+brew 'sanemat/font/ricty'
+cask 'alfred'
+cask 'dockertoolbox'
+cask 'eclipse-java'
+cask 'iterm2'
+cask 'sequel-pro'
+cask 'silverlight'
+cask 'skype'
+cask 'vagrant'
+cask 'virtualbox'
