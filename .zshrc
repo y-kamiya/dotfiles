@@ -56,8 +56,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
 zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incremental-pattern-search-forward
 
-# ssh-agent
-#. ~/.keychain/$HOST-sh
+if [ -f ~/.keychain/$HOST-sh ]; then
+    source ~/.keychain/$HOST-sh
+fi
 
 exceptedFiles='compiled_* db'
 function find-grep() { find . -print0 -type f ! -name $exceptedFiles -o -name .git -prune -o -name dist -prune -o -name build -prune | xargs -0 grep -n --binary-files=without-match "$@" 2> /dev/null }
@@ -89,6 +90,8 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
+# settings for pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
