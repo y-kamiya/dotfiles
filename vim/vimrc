@@ -164,6 +164,17 @@ function! s:VSetSearch()
     let @s = tmp
 endfunction
 
+nnoremap <silent> <Leader>nn :<C-u>call <SID>goCounterpart()<CR>
+function! s:goCounterpart()
+    let l:path = expand('%:p')
+    let l:ext = expand('%:e')
+    if ext == 'cpp'
+      execute 'edit ' . substitute(l:path, '\.cpp', '\.h', '')
+    elseif ext == 'h'
+      execute 'edit ' . substitute(l:path, '\.h', '\.cpp', '')
+    endif
+endfunction
+
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
