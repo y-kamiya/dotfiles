@@ -90,8 +90,11 @@ hook_source = '''
 [[plugins]]
 repo = 'stephpy/vim-php-cs-fixer'
 on_ft = 'php'
-if = 0
-#hook_source = 'let g:php_cs_fixer_path = s:fixer'
+hook_source = '''
+  let g:php_cs_fixer_rules = '@PSR2'
+  let g:php_cs_fixer_path = '/usr/local/bin/php-cs-fixer'
+  nnoremap <silent> <Leader>fix :call PhpCsFixerFixFile()<CR>
+'''
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
