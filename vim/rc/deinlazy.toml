@@ -97,6 +97,10 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'etaoins/vim-volt-syntax'
+on_ft = 'volt'
+
+[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
 hook_add = '''
