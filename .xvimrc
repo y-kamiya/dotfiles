@@ -1,8 +1,12 @@
 imap <C-f> <Esc>
-nmap <C-j><C-j> :xccmd jumpToNextCounterpart<CR>
 nmap <C-q>r :run<CR>
-nmap <C-q>d :run<CR>
-nmap <C-n> :xccmd goForwardInHistoryByCommand<CR>
-nmap <C-p> :xccmd goBackInHistoryByCommand<CR>
-"nmap <C-w><C-n> :xccmd moveKeyboardFocusToNextArea<CR>
-"nmap <C-w><C-p> :xccmd moveKeyboardFocusToNextArea<CR>
+nmap <C-q>b :make<CR>
+nmap <C-q>vh :xccmd toggleNavigatorsVisibility<CR>
+nmap <C-q>vj :xccmd toggleDebuggerVisibility<CR>
+nmap <C-q>vl :xccmd toggleUtilitiesVisibility<CR>
+nmap <C-q>ful :xccmd toggleFullScreen<CR>
+
+nmap <Space>nn :xccmd jumpToNextCounterpart<CR>
+nmap <C-i> :xccmd goForwardInHistoryByCommand<CR>
+nmap <C-o> :xccmd goBackInHistoryByCommand<CR>
+nmap <C-:> :xccmd jumpToDefinition<CR>
