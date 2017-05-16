@@ -16,8 +16,7 @@ export LC_ALL=ja_JP.UTF-8
 setopt auto_cd
 setopt extended_glob
 
-# for brew
-PATH=~/usr/local/bin:/usr/local/sbin:$PATH
+PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # for haskell
 PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
