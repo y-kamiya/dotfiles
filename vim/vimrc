@@ -93,6 +93,7 @@ set pumheight=5
 set virtualedit+=block
 set timeoutlen=300
 set ttimeoutlen=50
+set mouse=
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
