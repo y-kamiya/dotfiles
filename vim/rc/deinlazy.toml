@@ -313,6 +313,23 @@ on_idle = 1
 repo = 'tpope/vim-repeat'
 on_idle = 1
 
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+on_ft = ['cpp']
+
+[[plugins]]
+repo = 'osyo-manga/vim-reunions'
+on_ft = ['cpp']
+
+[[plugins]]
+repo = 'osyo-manga/vim-marching'
+depends = ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions']
+on_ft = ['cpp', 'c']
+on_idle = 1
+hook_add = '''
+  let g:marching_enable_neocomplete = 1
+'''
+
 
 
 
