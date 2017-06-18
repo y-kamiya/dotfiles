@@ -44,6 +44,17 @@
 ;; line number
 (global-linum-mode t)
 
+;; use y/n instead of yes/no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; display function name
+(which-function-mode 1)
+
+(require 'recentf)
+(setq recentf-save-file "~/.recentf")
+(run-with-idle-timer 30 t 'recentf-save-list)
+(recentf-mode 1)
+
 ;; key bind
 ;; goto line
 (global-set-key (kbd "C-x g") 'goto-line)
@@ -59,6 +70,10 @@
 (defalias 'my-original-prefix my-original-map)
 (define-key global-map (kbd "C-j") 'my-original-prefix)
 
+;; popup select window
+(global-set-key (kbd "C-x o") 'popup-select-window)
+(setq popup-select-window-popup-windows 3)
+
 ;; helm
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
@@ -72,17 +87,17 @@
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
 ;;(load-theme 'solarized-dark 0)
 
-;; haskell mode
-(autoload 'haskell-mode "haskell-mode")
-(autoload 'haskell-cabal "haskell-cabal")
-(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
-(add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode))
-(add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
-(setq haskell-program-name "/usr/bin/ghci")
+;; ;; haskell mode
+;; (autoload 'haskell-mode "haskell-mode")
+;; (autoload 'haskell-cabal "haskell-cabal")
+;; (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+;; (add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode))
+;; (add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
+;; (setq haskell-program-name "/usr/bin/ghci")
 
-;; ghc-mod
-(add-to-list 'exec-path (concat (getenv "HOME") "/.cabal/bin"))
-(add-to-list 'load-path "~/.cabal/share/ghc-mod-3.1.3")
-(autoload 'ghc-init "ghc")
-(ghc-init)
-(add-to-list 'ac-sources 'ac-source-ghc-mod)
+;; ;; ghc-mod
+;; (add-to-list 'exec-path (concat (getenv "HOME") "/.cabal/bin"))
+;; (add-to-list 'load-path "~/.cabal/share/ghc-mod-3.1.3")
+;; (autoload 'ghc-init "ghc")
+;; (ghc-init)
+;; (add-to-list 'ac-sources 'ac-source-ghc-mod)
