@@ -330,6 +330,13 @@ hook_add = '''
   let g:marching_enable_neocomplete = 1
 '''
 
+repo = 'landaire/deoplete-swift'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'keith/swift.vim'
+on_ft = ['swift']
+
 
 
 
