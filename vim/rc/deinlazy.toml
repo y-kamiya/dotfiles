@@ -319,23 +319,27 @@ on_ft = ['cpp']
 
 [[plugins]]
 repo = 'osyo-manga/vim-reunions'
-on_ft = ['cpp']
+on_source = ['vim-marching']
 
 [[plugins]]
 repo = 'osyo-manga/vim-marching'
-depends = ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions']
 on_ft = ['cpp', 'c']
 on_idle = 1
 hook_add = '''
   let g:marching_enable_neocomplete = 1
 '''
 
+[[plugins]]
 repo = 'landaire/deoplete-swift'
 on_ft = ['swift']
 
 [[plugins]]
 repo = 'keith/swift.vim'
 on_ft = ['swift']
+
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+on_idle = 1
 
 
 
