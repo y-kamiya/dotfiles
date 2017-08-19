@@ -75,7 +75,7 @@ repo = 'tpope/vim-unimpaired'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'tComment'
+repo = 'vim-scripts/tComment'
 
 [[plugins]]
 repo = 'tpope/vim-abolish'
