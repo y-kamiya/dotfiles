@@ -1,6 +1,6 @@
 if exists("did_load_filetypes")
-      finish
-  endif
+    finish
+endif
 
 augroup filetypedetect
   autocmd BufRead,BufNewFile *.ctp set filetype=php
@@ -13,6 +13,11 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.lucius  set filetype=lucius
   autocmd BufRead,BufNewFile *.julius  set filetype=julius
   autocmd BufRead,BufNewFile *.md  set filetype=markdown
+  " temporary setting, something is wrong for filetype settings now
+  autocmd BufRead,BufNewFile .vimrc,vimrc set filetype=vim
+  autocmd BufRead,BufNewFile *.git/COMMIT_EDITMSG set filetype=gitcommit
+  autocmd BufRead,BufNewFile *.cpp set filetype=cpp
+  autocmd BufRead,BufNewFile *.h set filetype=cpp
 augroup END
 
 
