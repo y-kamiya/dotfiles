@@ -40,7 +40,7 @@ on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
+# "depends = 'unite.vim'   this prevents setting filetype, unite.vim can not be set as depends?
 on_map = [['n', '<Plug>']]
 on_path = '.*'
 hook_add = 'noremap <silent> <Leader>f :VimFilerBufferDir -split -simple -winwidth=40 -no-quit<CR>'
@@ -340,11 +340,5 @@ on_ft = ['swift']
 [[plugins]]
 repo = 'vim-scripts/dbext.vim'
 on_idle = 1
-
-
-
-
-
-
 
 
