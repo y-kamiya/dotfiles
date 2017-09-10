@@ -279,13 +279,11 @@ on_idle = 1
 
 [[plugins]]
 repo = 'mattn/webapi-vim'
-on_source = ['hateblo.vim']
 on_ft = ['markdown']
 
 [[plugins]]
 repo = 'moznion/hateblo.vim'
 depends = ['webapi-vim']
-on_cmd = ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList', 'HatebloUpdate', 'HatebloDelete']
 on_ft = ['markdown']
 
 [[plugins]]

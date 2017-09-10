@@ -31,7 +31,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, ['~/.vim/rc/dein.toml', '~/.vim/rc/deinlazy.toml'])
+  call dein#begin(s:dein_dir)
 
   call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
