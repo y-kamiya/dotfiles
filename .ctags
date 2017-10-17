@@ -1,5 +1,12 @@
 --exclude=.git
 
+-R
+--fields=+iaS
+--extra=+q
+
+--langmap=c++:+.h
+--c++-kinds=+p
+
 --langdef=objc
 --langmap=objc:.m.h
 --regex-objc=/^[[:space:]]*[-+][[:space:]]*\([[:alpha:]]+[[:space:]]*\*?\)[[:space:]]*([[:alnum:]]+):[[:space:]]*\(/\1/m,method/
@@ -40,3 +47,4 @@
 --regex-swift=/func[ \t]+([^\(\)]+)\([^\(\)]*\)/\1/,function/ 
 --regex-swift=/class[ \t]+([^:\{]+).*$/\1/,class/ 
 --regex-swift=/protocol[ \t]+([^:\{]+).*$/\1/,protocol/
+
