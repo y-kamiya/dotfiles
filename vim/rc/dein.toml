@@ -70,6 +70,7 @@ let g:syntastic_warning_symbol = '>'
 
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
+if = 0
 
 [[plugins]]
 repo = 'tpope/vim-surround'
