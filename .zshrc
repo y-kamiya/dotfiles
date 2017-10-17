@@ -93,6 +93,11 @@ SAVEHIST=10000
 # settings for pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# brew file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
