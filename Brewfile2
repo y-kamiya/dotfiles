@@ -1,0 +1,147 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew ant
+brew autoconf
+brew automake
+brew awscli
+brew axel
+brew bison
+brew boost
+brew boot2docker
+brew c-ares
+brew cabal-install
+brew ccache
+brew cmake
+brew coreutils
+brew ctags
+brew darkstat
+brew dfu-programmer
+brew docker
+brew fontconfig
+brew freetype
+brew gcc
+brew gd
+brew gdbm
+brew gettext
+brew ghc
+brew gibo
+brew git
+brew global
+brew gmp
+brew gnu-sed
+brew gradle
+brew graphviz
+brew haskell-stack
+brew htop
+brew icu4c
+brew isl
+brew jansson
+brew jemalloc
+brew jpeg
+brew jpegoptim
+brew jq
+brew keychain
+brew libev
+brew libevent
+brew libmpc
+brew libpng
+brew libssh2
+brew libtermkey
+brew libtiff
+brew libtool
+brew libusb
+brew libusb-compat
+brew libuv
+brew libvterm
+brew libxml2
+brew libyaml
+brew mas
+brew mpfr
+brew msgpack
+brew mysql
+brew neovim
+brew nghttp2
+brew nkf
+brew node
+brew oniguruma
+brew openssl
+brew p7zip
+brew pcre
+brew perl
+brew pkg-config
+brew pstree
+brew pyenv
+brew python
+brew rbenv
+brew readline
+brew reattach-to-user-namespace
+brew ruby
+brew ruby-build
+brew sbt
+brew spdylay
+brew sqlite
+brew teensy_loader_cli
+brew the_silver_searcher
+brew tmux
+brew unibilium
+brew unixodbc
+brew unzip
+brew webp
+brew zlib
+brew zsh
+
+tap homebrew/dupes
+
+tap homebrew/php
+brew composer
+brew php-cs-fixer
+brew php55
+
+tap homebrew/versions
+
+tap caskroom/cask
+cask alfred
+cask android-sdk
+cask android-studio
+cask bettertouchtool
+cask google-chrome
+cask google-japanese-ime
+cask ifunbox
+cask iterm2
+cask java
+cask opensim
+cask sequel-pro
+cask slack
+cask totalterminal
+cask vagrant
+cask virtualbox
+
+tap caskroom/versions
+
+tap neovim/neovim
+
+tap osx-cross/avr
+brew avr-binutils
+brew avr-gcc
+
+tap rcmdnk/file
+brew brew-file
+
+# Other Homebrew packages
+brew avr-libc
+
+# Cask applications
+cask clipmenu
+
+# App Store applications
+appstore 434433123 Apple Configurator (1.7.2)
+appstore 408980954 GarageBand (6.0.5)
+appstore 408981434 iMovie (10.1.7)
+appstore 408981381 iPhoto (9.6.1)
+appstore 409183694 Keynote (7.3)
+appstore 414030210 LimeChat (2.42)
+appstore 409203825 Numbers (4.3)
+appstore 409201541 Pages (6.3)
+appstore 497799835 Xcode8.3.3 (8.3.3)
