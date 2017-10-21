@@ -1,91 +1,97 @@
-tap 'caskroom/cask'
-tap 'homebrew/binary'
-tap 'homebrew/bundle'
-tap 'homebrew/core'
-tap 'homebrew/dupes'
-tap 'homebrew/fuse'
-tap 'homebrew/php'
-tap 'homebrew/versions'
-tap 'neovim/neovim'
-tap 'sanemat/font'
-cask 'osxfuse'
-brew 'android-sdk'
-brew 'ant'
-brew 'autoconf'
-brew 'autojump'
-brew 'automake'
-brew 'bison'
-brew 'ghc'
-brew 'cabal-install'
-brew 'libsigsegv'
-brew 'readline'
-brew 'clisp'
-brew 'cmake'
-brew 'ctags'
-brew 'git'
-brew 'docker'
-brew 'emacs'
-brew 'openssl'
-brew 'jpeg'
-brew 'libpng'
-brew 'libtiff'
-brew 'wxmac'
-brew 'erlang'
-brew 'freetype'
-brew 'fontconfig'
-brew 'gettext'
-brew 'libtool'
-brew 'fontforge'
-brew 'gibo'
-brew 'libffi'
-brew 'pcre'
-brew 'glib'
-brew 'global'
-brew 'gmp'
-brew 'gnu-sed'
-brew 'go'
-brew 'gradle'
-brew 'haskell-stack'
-brew 'htop-osx'
-brew 'icu4c'
-brew 'jq'
-brew 'lha'
-brew 'libevent'
-brew 'lynx'
-brew 'makedepend'
-brew 'mysql'
-brew 'nkf'
-brew 'nmap'
-brew 'node'
-brew 'packer'
-brew 'pidof'
-brew 'pixman'
-brew 'pkg-config'
-brew 'pyenv'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'rbenv-gemset'
-brew 'rebar'
-brew 'sbt'
-brew 'scala'
-brew 'xz'
-brew 'the_silver_searcher'
-brew 'tmux'
-brew 'unixodbc'
-brew 'vim'
-brew 'homebrew/dupes/zlib'
-brew 'homebrew/fuse/ntfs-3g'
-brew 'homebrew/php/php56'
-brew 'homebrew/php/composer'
-brew 'homebrew/versions/android-ndk-r10e'
-brew 'neovim/neovim/neovim', args: ['HEAD']
-brew 'sanemat/font/ricty'
-cask 'alfred'
-cask 'dockertoolbox'
-cask 'eclipse-java'
-cask 'iterm2'
-cask 'sequel-pro'
-cask 'silverlight'
-cask 'skype'
-cask 'vagrant'
-cask 'virtualbox'
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew autoconf
+brew autojump
+brew automake
+brew cairo
+brew cmake
+brew ctags
+brew docker
+brew emacs
+brew fontconfig
+brew fontforge
+brew freetype
+brew gettext
+brew gibo
+brew git
+brew glib
+brew global
+brew gobject-introspection
+brew harfbuzz
+brew haskell-stack
+brew htop
+brew icu4c
+brew jemalloc
+brew jpeg
+brew jq
+brew keychain
+brew libevent
+brew libffi
+brew libpng
+brew libtermkey
+brew libtiff
+brew libtool
+brew libuv
+brew libvterm
+brew mas
+brew msgpack
+brew neovim --HEAD
+brew ntfs-3g
+brew oniguruma
+brew openssl
+brew pango
+brew pcre
+brew pixman
+brew pkg-config
+brew pyenv
+brew readline
+brew reattach-to-user-namespace
+brew sourcekitten
+brew the_silver_searcher
+brew tmux
+brew unibilium
+brew xz
+
+tap homebrew/bundle
+
+tap homebrew/fuse
+
+tap caskroom/cask
+cask alfred
+cask android-file-transfer
+cask android-studio
+cask clipy
+cask flux
+cask google-chrome
+cask google-japanese-ime
+cask iterm2
+cask java
+cask musescore
+cask osxfuse
+cask sequel-pro
+cask slack
+cask unity
+cask vagrant
+cask virtualbox
+cask vlc
+
+tap neovim/neovim
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty
+
+tap wooga/unityversions
+cask unity-android-support-for-editor@2017.1.0f3
+cask unity@2017.1.0f3
+
+# App Store applications
+appstore 682658836 GarageBand (10.2.0)
+appstore 409183694 Keynote (7.3)
+appstore 409203825 Numbers (4.3)
+appstore 409201541 Pages (6.3)
+appstore 497799835 Xcode (9.0.1)
