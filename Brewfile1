@@ -7,7 +7,6 @@ brew autojump
 brew automake
 brew cairo
 brew cmake
-brew ctags
 brew docker
 brew emacs
 brew fontconfig
@@ -84,6 +83,9 @@ brew brew-file
 
 tap sanemat/font
 brew ricty
+
+tap universal-ctags/universal-ctags
+brew universal-ctags --HEAD
 
 tap wooga/unityversions
 cask unity-android-support-for-editor@2017.1.0f3
