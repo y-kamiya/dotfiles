@@ -147,12 +147,7 @@ nnoremap vim :<C-u>edit $MYVIMRC<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
-" show cursor position toggle
-nnoremap <silent> <Leader>c :<C-u>setlocal cursorcolumn! cursorline!<CR>
 nnoremap <silent> <Leader>h :GhcModCheckAndLintAsync<CR>
-
-vnoremap < <gv
-vnoremap > >gv
 
 " search selected strings in visual mode
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -177,6 +172,9 @@ endfunction
 
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " }}}
 " {{{ colorschema
