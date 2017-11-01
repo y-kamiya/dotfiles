@@ -28,6 +28,7 @@ brew gettext
 brew ghc
 brew gibo
 brew git
+brew git-lfs
 brew global
 brew gmp
 brew gnu-sed
