@@ -9,16 +9,12 @@ brew awscli
 brew axel
 brew bison
 brew boost
-brew boot2docker
 brew c-ares
 brew cabal-install
 brew ccache
 brew cmake
-brew coreutils
-brew ctags
 brew darkstat
 brew dfu-programmer
-brew docker
 brew fontconfig
 brew freetype
 brew gcc
@@ -31,7 +27,6 @@ brew git
 brew git-lfs
 brew global
 brew gmp
-brew gnu-sed
 brew gradle
 brew graphviz
 brew haskell-stack
@@ -103,6 +98,7 @@ tap homebrew/versions
 tap caskroom/cask
 cask alfred
 cask clipy
+cask docker
 cask google-japanese-ime
 cask ifunbox
 cask iterm2
@@ -124,6 +120,12 @@ brew avr-gcc
 
 tap rcmdnk/file
 brew brew-file
+
+tap universal-ctags/universal-ctags
+brew universal-ctags --HEAD
+
+# Other Homebrew packages
+brew sqlite3
 
 # App Store applications
 appstore 434433123 Apple Configurator (1.7.2)
