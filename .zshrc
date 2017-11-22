@@ -50,6 +50,7 @@ alias cb="git rev-parse --abbrev-ref HEAD"
 export de='develop'
 export fo='forked'
 export up='upstream'
+export or='origin'
 export XDG_CONFIG_HOME=$HOME/.config
 
 zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
