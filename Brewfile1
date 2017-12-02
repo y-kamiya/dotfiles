@@ -8,7 +8,9 @@ brew automake
 brew cairo
 brew cmake
 brew docker
+brew eigen
 brew emacs
+brew ffmpeg
 brew fontconfig
 brew fontforge
 brew freetype
@@ -22,10 +24,13 @@ brew harfbuzz
 brew haskell-stack
 brew htop
 brew icu4c
+brew ilmbase
 brew jemalloc
 brew jpeg
 brew jq
 brew keychain
+brew lame
+brew leptonica
 brew libevent
 brew libffi
 brew libpng
@@ -38,19 +43,27 @@ brew mas
 brew msgpack
 brew neovim --HEAD
 brew ntfs-3g
+brew numpy
 brew oniguruma
+brew openexr
 brew openssl
 brew pango
 brew pcre
 brew pixman
 brew pkg-config
 brew pyenv
+brew python
+brew python3
 brew readline
 brew reattach-to-user-namespace
 brew sourcekitten
+brew tbb
+brew tesseract
 brew the_silver_searcher
 brew tmux
 brew unibilium
+brew x264
+brew xvid
 brew xz
 
 tap homebrew/bundle
@@ -62,7 +75,9 @@ cask alfred
 cask android-file-transfer
 cask android-studio
 cask clipy
+cask docker
 cask flux
+cask gimp
 cask google-chrome
 cask google-japanese-ime
 cask iterm2
@@ -88,8 +103,11 @@ tap universal-ctags/universal-ctags
 brew universal-ctags --HEAD
 
 tap wooga/unityversions
-cask unity-android-support-for-editor@2017.1.0f3
-cask unity@2017.1.0f3
+cask unity-android-support-for-editor@2017.2.0f3
+cask unity@2017.2.0f3
+
+# Other Homebrew packages
+brew opencv3
 
 # App Store applications
 appstore 682658836 GarageBand (10.2.0)
