@@ -27,6 +27,7 @@ brew git
 brew git-lfs
 brew global
 brew gmp
+brew gnu-sed
 brew gradle
 brew graphviz
 brew haskell-stack
@@ -83,6 +84,7 @@ brew tmux
 brew unibilium
 brew unixodbc
 brew unzip
+brew vim
 brew webp
 brew zlib
 brew zsh
@@ -97,6 +99,8 @@ tap homebrew/versions
 
 tap caskroom/cask
 cask alfred
+cask android-file-transfer
+cask arduino
 cask clipy
 cask docker
 cask google-japanese-ime
@@ -106,11 +110,14 @@ cask java
 cask opensim
 cask sequel-pro
 cask slack
-cask totalterminal
 cask vagrant
 cask virtualbox
 
 tap caskroom/versions
+
+tap https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
+
+tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
 
 tap neovim/neovim
 
@@ -126,6 +133,9 @@ brew universal-ctags --HEAD
 
 # Other Homebrew packages
 brew sqlite3
+
+# Cask applications
+cask totalterminal
 
 # App Store applications
 appstore 434433123 Apple Configurator (1.7.2)
