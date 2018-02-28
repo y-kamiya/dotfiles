@@ -83,6 +83,12 @@ repo = 'tpope/vim-abolish'
 
 [[plugins]]
 repo = 'vim-scripts/gtags.vim'
+hook_add = '''
+  nnoremap [gtags] <Nop>
+  nmap <Leader>g [gtags]
+  nnoremap <silent> [gtags]g :<C-u>Gtags<Space>-g<Space>
+  nnoremap <silent> [gtags]r :<C-u>Gtags<Space>-r<Space>
+'''
 
 [[plugins]]
 repo = "y-kamiya/automkdir.vim"
