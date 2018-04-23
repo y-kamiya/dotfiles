@@ -35,6 +35,24 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+depends = 'neomru.vim'
+on_cmd = ['Denite']
+hook_source = '''
+	call denite#custom#var('grep', 'command', ['ag'])
+'''
+hook_add = '''
+  nnoremap [denite] <Nop>
+  nmap <Leader>d [denite]
+  nnoremap <silent> [denite]b :<C-u>Denite<Space>buffer<CR>
+  nnoremap <silent> [denite]p :<C-u>Denite<Space>file/rec<CR>
+  nnoremap <silent> [denite]m :<C-u>Denite<Space>file_mru<CR>
+  nnoremap <silent> [denite]r :<C-u>Denite<Space>register<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite<Space>grep<CR>
+  nnoremap <silent> [denite]R :<C-u>Denite -buffer-name=search -resume -mode=normal<CR>
+'''
+
+[[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
