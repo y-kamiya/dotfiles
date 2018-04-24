@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'Shougo/unite.vim'
+if = "!has('nvim')"
 depends = 'neomru.vim'
 on_cmd = ['Unite']
 hook_source = '''
@@ -36,20 +37,27 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+if = "has('nvim')"
 depends = 'neomru.vim'
 on_cmd = ['Denite']
 hook_source = '''
 	call denite#custom#var('grep', 'command', ['ag'])
+  call denite#custom#map('insert', '<C-f>', '<denite:enter_mode:normal>')
+  call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>')
+  call denite#custom#map('normal', '<C-w>q', '<denite:quit>')
+  call denite#custom#map('normal', '<Esc>', '<denite:quit>')
 '''
 hook_add = '''
   nnoremap [denite] <Nop>
   nmap <Leader>d [denite]
   nnoremap <silent> [denite]b :<C-u>Denite<Space>buffer<CR>
   nnoremap <silent> [denite]p :<C-u>Denite<Space>file/rec<CR>
-  nnoremap <silent> [denite]m :<C-u>Denite<Space>file_mru<CR>
-  nnoremap <silent> [denite]r :<C-u>Denite<Space>register<CR>
-  nnoremap <silent> [denite]g :<C-u>Denite<Space>grep<CR>
-  nnoremap <silent> [denite]R :<C-u>Denite -buffer-name=search -resume -mode=normal<CR>
+  nnoremap <silent> [denite]m :<C-u>Denite<Space>file_mru<Space>-mode=normal<CR>
+  nnoremap <silent> [denite]r :<C-u>Denite<Space>register<Space>-mode=normal<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite<Space>grep<Space>-no-empty<CR>
+  nnoremap <silent> [denite]h :<C-u>Denite<Space>help<CR>
+  nnoremap <silent> [denite]l :<C-u>Denite<Space>line<CR>
+  nnoremap <silent> [denite]f :<C-u>Denite<Space>-buffer-name=search<Space>-resume<Space>-mode=normal<CR>
 '''
 
 [[plugins]]
