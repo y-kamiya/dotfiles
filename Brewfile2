@@ -13,6 +13,7 @@ brew c-ares
 brew cabal-install
 brew ccache
 brew cmake
+brew composer
 brew darkstat
 brew dfu-programmer
 brew fontconfig
@@ -67,6 +68,7 @@ brew openssl
 brew p7zip
 brew pcre
 brew perl
+brew php-cs-fixer
 brew pkg-config
 brew pstree
 brew pyenv
@@ -92,26 +94,10 @@ brew zsh
 tap homebrew/dupes
 
 tap homebrew/php
-brew composer
-brew php-cs-fixer
 
 tap homebrew/versions
 
 tap caskroom/cask
-cask alfred
-cask android-file-transfer
-cask arduino
-cask clipy
-cask docker
-cask google-japanese-ime
-cask ifunbox
-cask iterm2
-cask java
-cask opensim
-cask sequel-pro
-cask slack
-cask vagrant
-cask virtualbox
 
 tap caskroom/versions
 
@@ -135,7 +121,23 @@ brew universal-ctags --HEAD
 brew sqlite3
 
 # Cask applications
+cask alfred
+cask android-file-transfer
+cask arduino
+cask clipy
+cask docker
+cask google-cloud-sdk
+cask google-japanese-ime
+cask ifunbox
+cask iterm2
+cask java
+cask opensim
+cask sequel-pro
+cask slack
 cask totalterminal
+cask unity-hub
+cask vagrant
+cask virtualbox
 
 # App Store applications
 appstore 434433123 Apple Configurator (1.7.2)
