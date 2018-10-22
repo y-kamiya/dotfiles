@@ -193,3 +193,8 @@ endif
 
 source $HOME/.vimrc.local
 
+if has('gui_running')
+    colorscheme solarized
+    set guioptions=c
+    set guifont=Monaco:h9
+endif

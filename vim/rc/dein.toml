@@ -65,6 +65,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '>>'
 let g:syntastic_warning_symbol = '>'
+let g:syntastic_cs_checkers = ['code_checker']
 " let g:syntastic_haskell_checkers = ['ghc-mod', 'hlint']
 '''
 

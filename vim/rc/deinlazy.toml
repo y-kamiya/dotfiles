@@ -59,11 +59,17 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/defx.nvim'
+if = "has('nvim')"
+hook_add = "noremap <silent><Leader>f defx#do_action('open', 'wincmd w \| drop')"
+
+[[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
+if = "!has('nvim')"
 # "depends = 'unite.vim'   this prevents setting filetype, unite.vim can not be set as depends?
 on_map = [['n', '<Plug>']]
 on_path = '.*'
@@ -384,4 +390,18 @@ hook_add = '''
   nnoremap <silent> [jedi]r :call jedi#rename()<CR>
 '''
 
+[[plugins]]
+repo = "OmniSharp/omnisharp-vim"
+on_ft = ["cs"]
+if = "has('nvim')"
+build = "msbuild server/OmniSharp.sln"
+hook_add = '''
+  let g:OmniSharp_timeout = 5
+'''
+
+[[plugins]]
+repo = "Robzz/deoplete-omnisharp"
+on_ft = ["cs"]
+if = "has('nvim')"
+on_source = ["deoplete.nvim"]
 
