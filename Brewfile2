@@ -14,6 +14,7 @@ brew cabal-install
 brew ccache
 brew cmake
 brew composer
+brew cscope
 brew darkstat
 brew dfu-programmer
 brew fontconfig
@@ -55,6 +56,7 @@ brew libuv
 brew libvterm
 brew libxml2
 brew libyaml
+brew macvim
 brew mas
 brew mpfr
 brew msgpack
@@ -88,6 +90,7 @@ brew unixodbc
 brew unzip
 brew vim
 brew webp
+brew xz
 brew zlib
 brew zsh
 
@@ -124,6 +127,7 @@ brew sqlite3
 cask alfred
 cask android-file-transfer
 cask arduino
+cask box-sync
 cask clipy
 cask docker
 cask google-cloud-sdk
