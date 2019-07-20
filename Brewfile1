@@ -6,6 +6,7 @@ brew autoconf
 brew autojump
 brew automake
 brew cairo
+brew capnp
 brew cmake
 brew docker
 brew eigen
@@ -14,18 +15,22 @@ brew ffmpeg
 brew fontconfig
 brew fontforge
 brew freetype
+brew gcc
 brew gettext
 brew gibo
 brew git
 brew git-lfs
 brew glib
 brew global
+brew gmp
 brew gobject-introspection
+brew grep
 brew harfbuzz
 brew haskell-stack
 brew htop
 brew icu4c
 brew ilmbase
+brew isl
 brew jemalloc
 brew jpeg
 brew jq
@@ -34,18 +39,24 @@ brew lame
 brew leptonica
 brew libevent
 brew libffi
+brew libidn2
+brew libmpc
 brew libpng
 brew libtermkey
 brew libtiff
 brew libtool
+brew libunistring
 brew libuv
 brew libvterm
+brew lua@5.1
 brew mas
+brew mpfr
 brew msgpack
 brew neovim --HEAD
 brew ntfs-3g
 brew numpy
 brew oniguruma
+brew open-mpi
 brew openexr
 brew openssl
 brew pango
@@ -54,7 +65,6 @@ brew pixman
 brew pkg-config
 brew pyenv
 brew python
-brew python3
 brew readline
 brew reattach-to-user-namespace
 brew sourcekitten
@@ -63,6 +73,7 @@ brew tesseract
 brew the_silver_searcher
 brew tmux
 brew unibilium
+brew wget
 brew x264
 brew xvid
 brew xz
@@ -77,17 +88,21 @@ cask android-file-transfer
 cask android-studio
 cask clipy
 cask discord
+cask disk-inventory-x
 cask docker
 cask flux
 cask gimp
 cask google-chrome
+cask google-cloud-sdk
 cask google-japanese-ime
 cask intel-power-gadget
 cask iterm2
 cask java
 cask kindle
+cask libreoffice
 cask musescore
 cask osxfuse
+cask postman
 cask sequel-pro
 cask slack
 cask telegram
@@ -113,6 +128,9 @@ cask unity@2017.2.0f3
 
 # Other Homebrew packages
 brew opencv3
+brew openmpi
+brew python3
+brew qt5
 
 # App Store applications
 appstore 682658836 GarageBand (10.2.0)
