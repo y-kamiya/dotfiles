@@ -56,7 +56,6 @@ brew libuv
 brew libvterm
 brew libxml2
 brew libyaml
-brew macvim
 brew mas
 brew mpfr
 brew msgpack
@@ -96,8 +95,6 @@ brew zsh
 
 tap homebrew/dupes
 
-tap homebrew/php
-
 tap homebrew/versions
 
 tap caskroom/cask
@@ -107,8 +104,6 @@ tap caskroom/versions
 tap https://github.com/mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
 
 tap mengbo/ch340g-ch34g-ch34x-mac-os-x-driver
-
-tap neovim/neovim
 
 tap osx-cross/avr
 brew avr-binutils
@@ -126,8 +121,6 @@ brew sqlite3
 # Cask applications
 cask alfred
 cask android-file-transfer
-cask arduino
-cask box-sync
 cask clipy
 cask docker
 cask google-cloud-sdk
@@ -138,17 +131,6 @@ cask java
 cask opensim
 cask sequel-pro
 cask slack
-cask totalterminal
 cask unity-hub
 cask vagrant
 cask virtualbox
-
-# App Store applications
-appstore 434433123 Apple Configurator (1.7.2)
-appstore 408980954 GarageBand (6.0.5)
-appstore 408981434 iMovie (10.1.7)
-appstore 408981381 iPhoto (9.6.1)
-appstore 409183694 Keynote (7.3)
-appstore 414030210 LimeChat (2.42)
-appstore 409203825 Numbers (4.3)
-appstore 409201541 Pages (6.3)
