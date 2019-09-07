@@ -346,8 +346,6 @@ hook_source = '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-depends = 'deoplete.nvim'
-on_i = 1
 hook_add = '''
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -366,7 +364,6 @@ endif
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 depends = 'neosnippet.vim'
-on_i = 1
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
