@@ -429,13 +429,8 @@ if = "has('nvim')"
 build = "msbuild server/OmniSharp.sln"
 hook_add = '''
   let g:OmniSharp_timeout = 5
+  let g:OmniSharp_highlighting = 0
 '''
-
-[[plugins]]
-repo = "Robzz/deoplete-omnisharp"
-on_ft = ["cs"]
-if = "has('nvim')"
-depends = ["deoplete.nvim"]
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
