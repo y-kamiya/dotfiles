@@ -142,6 +142,8 @@ nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]c :cnext<CR>
 nnoremap <silent> [c :cprevious<CR>
 
+nnoremap <silent> <C-w>d :bdelete %<CR>
+
 nnoremap <F6> :<C-u>source $MYVIMRC<CR>
 nnoremap vim :<C-u>edit $MYVIMRC<CR>
 
