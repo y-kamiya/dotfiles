@@ -26,7 +26,7 @@ function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; s
 function ls_type() {
     case ${OSTYPE} in
         darwin*)
-            HAS_COREUTILS=$(brew list | grep '^coreutils$' | wc -l)
+            HAS_COREUTILS=$(brew list --formula | grep '^coreutils$' | wc -l)
             if [ 0 -eq $HAS_COREUTILS ]; then
                 echo 'darwin'
             else
