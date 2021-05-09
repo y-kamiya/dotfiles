@@ -13,33 +13,32 @@ alias zmv='noglob zmv -W '
 # encode
 export LC_ALL=ja_JP.UTF-8
 
-setopt auto_cd
 setopt extended_glob
 
 PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+    PATH='/usr/local/opt/coreutils/libexec/gnubin':$PATH
+    MANPATH='/usr/local/opt/coreutils/libexec/gnuman':$MANPATH
+fi
 
 # for haskell
 PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
 
+# for uconv
+if [ -d /usr/local/Cellar/icu4c/58.1/bin ]; then
+    PATH=/usr/local/Cellar/icu4c/58.1/bin/:$PATH
+fi
+
 # alias
-function ls_type() {
-    case ${OSTYPE} in
-        darwin*)
-            HAS_COREUTILS=$(brew list --formula | grep '^coreutils$' | wc -l)
-            if [ 0 -eq $HAS_COREUTILS ]; then
-                echo 'darwin'
-            else
-                echo 'linux'
-            fi ;;
-        linux*) echo 'linux';;
-    esac
-}
-case `ls_type` in
-    darwin) alias ls="ls -G";;
-    linux)  alias ls="ls --color=auto";;
-    *) echo 'unknown type is found, `ls` has no color now'
-esac
+unalias ls > /dev/null 2>&1
+ls --color=auto > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alias ls="ls --color=auto"
+else
+    alias ls="ls -G"
+fi
 
 alias la="ls -a"
 alias ll="ls -l"
