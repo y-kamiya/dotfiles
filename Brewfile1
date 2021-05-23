@@ -14,7 +14,6 @@ brew docbook-xsl
 brew docker
 brew eigen
 brew emacs
-brew espeak
 brew ffmpeg
 brew fontconfig
 brew fontforge
@@ -107,6 +106,7 @@ brew x265
 brew xmlto
 brew xvid
 brew xz
+brew zsh-syntax-highlighting
 
 tap homebrew/bundle
 
@@ -159,15 +159,19 @@ cask unity-android-support-for-editor@2017.2.0f3
 cask unity@2017.2.0f3
 
 # Other Homebrew packages
+brew alfred
 brew disk-inventory-x
 brew google-backup-and-sync
 brew java
 brew opencv3
 brew openmpi
 brew openssl
+brew postman
 brew python
 brew python3
 brew qt5
+brew skitch
+brew virtualbox
 
 # Cask applications
 cask java
