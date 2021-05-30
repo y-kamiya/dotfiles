@@ -100,3 +100,18 @@ hook_add = '''
 
 [[plugins]]
 repo = "y-kamiya/automkdir.vim"
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+hook_add = '''
+  inoremap <silent><expr> <CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
+'''
+hook_source = '''
+  call deoplete#enable()
+'''
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+depends = 'deoplete.nvim'
