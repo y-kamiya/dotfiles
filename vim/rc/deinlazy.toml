@@ -322,7 +322,7 @@ depends = 'context_filetype.vim'
 if = "has('nvim')"
 on_i = 1
 hook_source = '''
-  let g:deoplete#enable_at_startup = 1
+  call deoplete#enable()
 '''
 
 [[plugins]]
@@ -470,4 +470,22 @@ nnoremap <silent><buffer><expr> <C-g>
 nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
 \ ':<C-u>wincmd w<CR>' :
 \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
+'''
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+if = "has('nvim')"
+depends = 'deoplete.nvim'
+hook_add = '''
+let s:pyls_path = $HOME .'/.local/share/vim-lsp-settings/servers/pyls-all/pyls-all'
+if (filereadable(s:pyls_path))
+  augroup LspPython
+      autocmd!
+      autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'allowlist': ['python']
+        \ })
+  augroup END
+endif
 '''
