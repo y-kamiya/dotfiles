@@ -379,16 +379,6 @@ repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
 [[plugins]]
-repo = "OmniSharp/omnisharp-vim"
-on_ft = ["cs"]
-if = "has('nvim')"
-build = "msbuild server/OmniSharp.sln"
-hook_add = '''
-  let g:OmniSharp_timeout = 5
-  let g:OmniSharp_highlighting = 0
-'''
-
-[[plugins]]
 repo = 'Shougo/defx.nvim'
 if = "has('nvim')"
 hook_add = '''
