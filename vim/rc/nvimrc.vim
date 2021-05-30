@@ -1,7 +1,6 @@
 tnoremap <ESC> <C-\><C-n>
+tnoremap <C-f> <C-\><C-n>
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 
-"if exists('+termguicolors')
-"  set termguicolors
-"endif
+autocmd TermOpen * startinsert
