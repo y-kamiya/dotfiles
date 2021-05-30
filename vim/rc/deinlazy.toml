@@ -137,11 +137,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'etaoins/vim-volt-syntax'
-if = 0
-on_ft = 'volt'
-
-[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
 hook_add = '''
@@ -205,11 +200,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_cmd = ['scala']
-hook_source = 'autocmd myvimrc BufNewFile,BufRead *.scala setf scala'
-
-[[plugins]]
 repo = 'vim-scripts/yanktmp.vim'
 on_map = [['n', '<Plug>']]
 hook_add = '''
@@ -254,15 +244,6 @@ hook_source = '''
    \       'command': 'runghc',
    \   },
    \}
-'''
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
-on_idle = 1
-if = 0
-hook_add = '''
-  let g:precious_enable_switch_CursorMoved = {"*": 1}
 '''
 
 [[plugins]]
@@ -388,14 +369,6 @@ on_idle = 1
 hook_add = '''
   let g:marching_enable_neocomplete = 1
 '''
-
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-on_ft = ['swift']
-
-[[plugins]]
-repo = 'keith/swift.vim'
-on_ft = ['swift']
 
 [[plugins]]
 repo = 'vim-scripts/dbext.vim'

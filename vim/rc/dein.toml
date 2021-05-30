@@ -96,18 +96,3 @@ hook_add = '''
 
 [[plugins]]
 repo = "y-kamiya/automkdir.vim"
-
-[[plugins]]
-repo = 'chazmcgarvey/vimcoder'
-if = 0
-
-[[plugins]]
-repo = 'terryma/vim-expand-region'
-if = 0
-
-
-
-
-
-
-
