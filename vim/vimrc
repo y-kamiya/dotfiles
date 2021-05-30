@@ -84,7 +84,6 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set suffixesadd+=.php
 set pastetoggle=<Leader>P
 set shiftwidth=4
 set tabstop=4
