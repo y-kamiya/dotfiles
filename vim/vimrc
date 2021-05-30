@@ -75,6 +75,7 @@ set wildignore=*.zip
 set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
+set completeopt-=preview
 set nobackup
 set noswapfile
 set lazyredraw
