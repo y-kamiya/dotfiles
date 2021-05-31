@@ -87,15 +87,6 @@ hook_add = 'noremap <silent> <Leader>f :VimFilerBufferDir -split -simple -winwid
 hook_source = 'let vimfiler_as_default_explorer = 1'
 
 [[plugins]]
-repo = 'Shougo/vimshell.vim'
-on_map = [['n', '<Plug>']]
-hook_add = '''
-  nnoremap <silent> <Leader>s :VimShellBufferDir<CR>
-  nnoremap <silent> <Leader>sh :VimShellInteractive ghci<CR>
-  nnoremap <silent> <Leader>ss <S-v>:VimShellSendString<CR>
-'''
-
-[[plugins]]
 repo = 'glidenote/memolist.vim'
 on_cmd = ['MemoNew','MemoList','MemoGrep']
 hook_add = '''
