@@ -181,13 +181,6 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
 " }}}
-" {{{ colorschema
-autocmd myvimrc ColorScheme * highlight LineNr ctermfg=239
-set background=dark
-"let g:solarized_termtrans=1
-"colorscheme solarized
-colorscheme hybrid
-" }}}
 
 if has('nvim')
   execute 'source' fnamemodify(expand('<sfile>'), ':h').'/rc/nvimrc.vim'

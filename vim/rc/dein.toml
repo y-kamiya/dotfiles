@@ -10,6 +10,11 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+hook_add = '''
+  set background=dark
+  autocmd myvimrc ColorScheme * highlight LineNr ctermfg=243
+  autocmd myvimrc VimEnter * nested colorscheme hybrid
+'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
