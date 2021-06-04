@@ -70,12 +70,13 @@ if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
 nnoremap [lsp] <Nop>
 nmap <Leader>l [lsp]
-nnoremap <silent> [lsp]\] :LspDefinition<CR>
-nnoremap <silent> [lsp]rr :LspRename<CR>
-nnoremap <silent> [lsp]r :LspReferences<CR>
-nnoremap <silent> [lsp]d :LspDocumentDiagnostics<CR>
-nnoremap <silent> [lsp]h :LspHover<CR>
-nnoremap <silent> [lsp]f :LspDocumentFormat<CR>
+nnoremap <silent> [lsp]gd :LspDefinition<CR>
+nnoremap <silent> [lsp]gi :LspImplementation<CR>
+nnoremap <silent> [lsp]R :LspRename<CR>
+nnoremap <silent> [lsp]re :LspReferences<CR>
+nnoremap <silent> [lsp]di :LspDocumentDiagnostics<CR>
+nnoremap <silent> [lsp]ho :LspHover<CR>
+nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
 '''
 
 [[plugins]]
