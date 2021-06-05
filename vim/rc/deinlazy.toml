@@ -87,15 +87,6 @@ hook_add = 'noremap <silent> <Leader>f :VimFilerBufferDir -split -simple -winwid
 hook_source = 'let vimfiler_as_default_explorer = 1'
 
 [[plugins]]
-repo = 'Shougo/vimshell.vim'
-on_map = [['n', '<Plug>']]
-hook_add = '''
-  nnoremap <silent> <Leader>s :VimShellBufferDir<CR>
-  nnoremap <silent> <Leader>sh :VimShellInteractive ghci<CR>
-  nnoremap <silent> <Leader>ss <S-v>:VimShellSendString<CR>
-'''
-
-[[plugins]]
 repo = 'glidenote/memolist.vim'
 on_cmd = ['MemoNew','MemoList','MemoGrep']
 hook_add = '''
@@ -135,11 +126,6 @@ hook_source = '''
   let g:php_cs_fixer_path = '/usr/local/bin/php-cs-fixer'
   nnoremap <silent> <Leader>fix :call PhpCsFixerFixFile()<CR>
 '''
-
-[[plugins]]
-repo = 'etaoins/vim-volt-syntax'
-if = 0
-on_ft = 'volt'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
@@ -205,11 +191,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_cmd = ['scala']
-hook_source = 'autocmd myvimrc BufNewFile,BufRead *.scala setf scala'
-
-[[plugins]]
 repo = 'vim-scripts/yanktmp.vim'
 on_map = [['n', '<Plug>']]
 hook_add = '''
@@ -254,15 +235,6 @@ hook_source = '''
    \       'command': 'runghc',
    \   },
    \}
-'''
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
-on_idle = 1
-if = 0
-hook_add = '''
-  let g:precious_enable_switch_CursorMoved = {"*": 1}
 '''
 
 [[plugins]]
@@ -336,17 +308,10 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-if = "has('nvim')"
-on_i = 1
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
-hook_add = '''
+on_i = 1
+depends = 'neosnippet-snippets'
+hook_source = '''
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -363,7 +328,7 @@ endif
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-depends = 'neosnippet.vim'
+on_i = 1
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
@@ -390,30 +355,12 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'landaire/deoplete-swift'
-on_ft = ['swift']
-
-[[plugins]]
-repo = 'keith/swift.vim'
-on_ft = ['swift']
-
-[[plugins]]
 repo = 'vim-scripts/dbext.vim'
 on_idle = 1
 
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
-
-[[plugins]]
-repo = "OmniSharp/omnisharp-vim"
-on_ft = ["cs"]
-if = "has('nvim')"
-build = "msbuild server/OmniSharp.sln"
-hook_add = '''
-  let g:OmniSharp_timeout = 5
-  let g:OmniSharp_highlighting = 0
-'''
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'

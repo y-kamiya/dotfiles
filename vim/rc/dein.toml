@@ -10,6 +10,11 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+hook_add = '''
+  set background=dark
+  autocmd myvimrc ColorScheme * highlight LineNr ctermfg=243
+  autocmd myvimrc VimEnter * nested colorscheme hybrid
+'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -51,22 +56,27 @@ hook_add = '''
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 100
-let g:lsp_signs_enabled = 1
-let g:lsp_highlights_enabled = 0
-let g:lsp_virtual_text_enabled = 0
-let g:lsp_virtual_text_prefix = ">>> "
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '‼'}
-let g:lsp_signs_information = {'text': 'i'}
-let g:lsp_signs_hint = {'text': '?'}
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_highlights_enabled = 0
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_virtual_text_prefix = ">>> "
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': '‼'}
+let g:lsp_diagnostics_signs_information = {'text': 'i'}
+let g:lsp_diagnostics_signs_hint = {'text': '?'}
+
+setlocal omnifunc=lsp#complete
+if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
 nnoremap [lsp] <Nop>
 nmap <Leader>l [lsp]
-nnoremap <silent> [lsp]\] :LspDefinition<CR>
-nnoremap <silent> [lsp]rr :LspRename<CR>
-nnoremap <silent> [lsp]r :LspReferences<CR>
-nnoremap <silent> [lsp]d :LspDocumentDiagnostics<CR>
-nnoremap <silent> [lsp]h :LspHover<CR>
+nnoremap <silent> [lsp]gd :LspDefinition<CR>
+nnoremap <silent> [lsp]gi :LspImplementation<CR>
+nnoremap <silent> [lsp]R :LspRename<CR>
+nnoremap <silent> [lsp]re :LspReferences<CR>
+nnoremap <silent> [lsp]di :LspDocumentDiagnostics<CR>
+nnoremap <silent> [lsp]ho :LspHover<CR>
+nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
 '''
 
 [[plugins]]
@@ -98,16 +108,16 @@ hook_add = '''
 repo = "y-kamiya/automkdir.vim"
 
 [[plugins]]
-repo = 'chazmcgarvey/vimcoder'
-if = 0
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+hook_add = '''
+  inoremap <silent><expr> <CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
+'''
+hook_source = '''
+  call deoplete#enable()
+'''
 
 [[plugins]]
-repo = 'terryma/vim-expand-region'
-if = 0
-
-
-
-
-
-
-
+repo = 'lighttiger2505/deoplete-vim-lsp'
+depends = 'deoplete.nvim'

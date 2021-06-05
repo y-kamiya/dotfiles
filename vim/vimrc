@@ -75,6 +75,7 @@ set wildignore=*.zip
 set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
+set completeopt-=preview
 set nobackup
 set noswapfile
 set lazyredraw
@@ -83,8 +84,7 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set suffixesadd+=.php
-set pastetoggle=<F9>
+set pastetoggle=<Leader>P
 set shiftwidth=4
 set tabstop=4
 set tags=.git/tags,.tags,./tags,tags
@@ -180,13 +180,6 @@ cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" }}}
-" {{{ colorschema
-autocmd myvimrc ColorScheme * highlight LineNr ctermfg=239
-set background=dark
-"let g:solarized_termtrans=1
-"colorscheme solarized
-colorscheme hybrid
 " }}}
 
 if has('nvim')
