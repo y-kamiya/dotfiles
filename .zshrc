@@ -1,11 +1,10 @@
 bindkey -e
 
 # git completion
-if [ -d ~/.zsh/completion ]; then
-    fpath=(~/.zsh/completion $fpath)
-    autoload -U compinit
-    compinit -u
-fi
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/completion $fpath)
+autoload -U compinit
+compinit -u
 
 if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
