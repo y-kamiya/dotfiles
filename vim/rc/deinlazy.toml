@@ -95,7 +95,7 @@ hook_add = '''
   nnoremap <Leader>mg  :MemoGrep<CR>
 '''
 hook_source = '''
-  let g:memolist_vimfiler = 1
+  let g:memolist_denite = 1
   let g:memolist_path = expand('~/.memo')
 '''
 
