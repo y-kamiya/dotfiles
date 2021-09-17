@@ -9,6 +9,7 @@ brew cairo
 brew capnp
 brew cmake
 brew coreutils
+brew deno
 brew docbook
 brew docbook-xsl
 brew docker
@@ -21,6 +22,7 @@ brew freetype
 brew gcc
 brew gdbm
 brew gettext
+brew gh
 brew ghostscript
 brew gibo
 brew git
@@ -98,6 +100,7 @@ brew the_silver_searcher
 brew tmux
 brew tree
 brew unibilium
+brew universal-ctags --HEAD
 brew vim
 brew webp
 brew wget
@@ -152,7 +155,6 @@ tap sanemat/font
 brew ricty
 
 tap universal-ctags/universal-ctags
-brew universal-ctags --HEAD
 
 tap wooga/unityversions
 cask unity-android-support-for-editor@2017.2.0f3
@@ -171,6 +173,7 @@ brew python
 brew python3
 brew qt5
 brew skitch
+brew unity-hub
 brew virtualbox
 
 # Cask applications
