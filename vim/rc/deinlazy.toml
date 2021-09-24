@@ -225,10 +225,10 @@ hook_add = 'nmap <silent> <Leader>rr <Plug>(quickrun)'
 hook_source = '''
    let g:quickrun_config = {
    \   '_': {
-   \     'debug': 'ss',
    \     'input': '=%{b:input}', 'cmdopt': '%{b:cmdopt}', 'args': '%{b:args}',
    \     'runner': 'vimproc',
    \     'runner/vimproc/updatetime': 50,
+   \     'outputter/buffer/opener' : 'new',
    \     'outputter/buffer/close_on_empty' : 1,
    \   },
    \   'haskell': {
@@ -455,3 +455,11 @@ nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
 \ ':<C-u>wincmd w<CR>' :
 \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
+
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+depends = 'open-browser.vim'
