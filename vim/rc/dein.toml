@@ -77,8 +77,8 @@ nnoremap [lsp] <Nop>
 nmap <Leader>l [lsp]
 nnoremap <silent> [lsp]gd :LspDefinition<CR>
 nnoremap <silent> [lsp]gi :LspImplementation<CR>
+nnoremap <silent> [lsp]gr :LspReferences<CR>
 nnoremap <silent> [lsp]R :LspRename<CR>
-nnoremap <silent> [lsp]re :LspReferences<CR>
 nnoremap <silent> [lsp]di :LspDocumentDiagnostics<CR>
 nnoremap <silent> [lsp]ho :LspHover<CR>
 nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
@@ -133,8 +133,6 @@ if = "has('nvim')"
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
   inoremap <silent><expr> <CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
-  inoremap <expr><C-h> deoplete#smart_close_popup()."<C-h>"
-  inoremap <expr><BS> deoplete#smart_close_popup()."<C-h>"
 '''
 hook_source = '''
   call deoplete#custom#option({
