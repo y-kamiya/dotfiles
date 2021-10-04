@@ -86,6 +86,20 @@ nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+hook_add = '''
+  let g:lsp_settings = {
+  \  'pylsp-all': {
+  \    'workspace_config': {
+  \      'pylsp-all': {
+  \        'configurationSources': ['flake8'],
+  \        'plugins': {
+  \          'pylsp_mypy': { 'enabled': 1 }
+  \        }
+  \      }
+  \    }
+  \  }
+  \}
+'''
 
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
