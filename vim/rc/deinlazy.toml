@@ -270,7 +270,6 @@ hook_source = '''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
-on_ft = ['haskell']
 on_event = ['FocusLost', 'CursorHold']
 
 [[plugins]]
