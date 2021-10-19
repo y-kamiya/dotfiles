@@ -127,4 +127,3 @@ cask "slack"
 cask "unity-hub"
 cask "vagrant"
 mas "Microsoft Remote Desktop", id: 1295203466
-mas "Xcode", id: 497799835
