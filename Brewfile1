@@ -5,6 +5,8 @@ tap homebrew/core
 brew autoconf
 brew autojump
 brew automake
+brew berkeley-db
+brew ca-certificates
 brew cairo
 brew capnp
 brew cmake
@@ -69,8 +71,10 @@ brew lua@5.1
 brew mas
 brew mecab
 brew mecab-ipadic
+brew mpdecimal
 brew mpfr
 brew msgpack
+brew ncurses
 brew neovim --HEAD
 brew nkf
 brew ntfs-3g
@@ -85,13 +89,16 @@ brew pcre
 brew perl
 brew pixman
 brew pkg-config
+brew poetry
 brew portaudio
 brew pyenv
 brew python@3.8
+brew python@3.9
 brew readline
 brew reattach-to-user-namespace
 brew ruby
 brew shared-mime-info
+brew six
 brew sourcekitten
 brew sqlite
 brew tbb
