@@ -18,21 +18,8 @@ export LC_ALL=ja_JP.UTF-8
 
 setopt extended_glob
 
-PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-
-if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
-    PATH='/usr/local/opt/coreutils/libexec/gnubin':$PATH
-    MANPATH='/usr/local/opt/coreutils/libexec/gnuman':$MANPATH
-fi
-
 # for haskell
-PATH=$HOME/.local/bin:$HOME/.cabal/bin:/Library/Haskell/bin:$PATH
 function htags () { find . -name '*.*hs' | xargs hasktags -c -o .git/tags -R ; sort -o .git/tags .git/tags }
-
-# for uconv
-if [ -d /usr/local/Cellar/icu4c/58.1/bin ]; then
-    PATH=/usr/local/Cellar/icu4c/58.1/bin/:$PATH
-fi
 
 # alias
 unalias ls > /dev/null 2>&1
@@ -104,4 +91,3 @@ fi
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
-
