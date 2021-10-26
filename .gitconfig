@@ -21,6 +21,7 @@
     quotepath = false
 [core]
     editor = vim -c \"set fenc=utf-8\"
+	autocrlf = false
 [push]
     default = simple
 [include]
