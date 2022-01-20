@@ -101,9 +101,9 @@ let loaded_matchparen = 1
 highlight CursorColumn term=reverse cterm=reverse
 
 augroup myvimrc
-    "autocmd BufNewFile *.tpl 0r ~/.vim/template/template.tpl
-    "autocmd BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
-    " autocmd BufWritePre * %s/\s\+$//e
+  autocmd BufNewFile $HOME/gws/test/cpp/atcoder/**/*.cpp :0r ~/.vim/templates/atcoder.cpp
+  "autocmd BufNewFile *.tpl %substitute#__DATE__#\=strftime('%Y-%m-%d')#ge
+  " autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
 " {{{  go
