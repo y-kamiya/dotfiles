@@ -11,6 +11,7 @@ using ll = long long;
 #define UNIQUE(v) v.erase( unique(v.begin(), v.end()), v.end() );
 #define YES(n) cout << ((n) ? "YES" : "NO"  ) << endl
 #define Yes(n) cout << ((n) ? "Yes" : "No"  ) << endl
+#define PRINT_DOUBLE(n, x) cout << std::fixed << std::setprecision(n) << x << endl;
 
 static const int INF = 1<<29;
 
