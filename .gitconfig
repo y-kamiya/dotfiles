@@ -16,6 +16,8 @@
     cb = rev-parse --abbrev-ref HEAD
     lg = log --oneline --decorate --graph
     fe = fetch
+    showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...$(git cb) | grep 'Merge pull request #' | head -n 1; }; f"
+    openpr = "!f() { gh pr view -w -- `git showpr $1 | cut -f5 -d' ' | sed -e 's@#@@'`; }; f"
 [color]
     ui = true
     quotepath = false
