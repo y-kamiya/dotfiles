@@ -88,6 +88,10 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 
+if type kubectl > /dev/null 2>&1; then
+    source <(kubectl completion zsh)
+fi
+
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
