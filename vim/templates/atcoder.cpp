@@ -13,31 +13,17 @@ using ll = long long;
 #define Yes(n) cout << ((n) ? "Yes" : "No"  ) << endl
 #define PRINT_DOUBLE(n, x) cout << std::fixed << std::setprecision(n) << x << endl;
 
-static const ll INF = 1LL<<60;
+void print() { cout << endl; }
 
-struct UnionFind {
-    vector<ll> par;
-
-    UnionFind(ll n) {
-        par.assign(n, 0);
-        REP(i, n) par[i] = i;
-    }
-
-    ll root(ll a) {
-        if (a == par[a]) return a;
-        return par[a] = root(par[a]);
-    }
-
-    bool same(ll a, ll b) {
-        return root(a) == root(b);
-    }
-
-    void merge(ll a, ll b) {
-        ll x = root(a);
-        ll y = root(b);
-        if (x != y) par[x] = y;
-    }
-};
+template<typename Head, typename... Tail>
+void print(Head h, Tail... t) {
+    cout << h << " "; print(t...);
+}
+#ifdef _DEBUG
+#define DEBUG(...) print(__VA_ARGS__)
+#else
+#define DEBUG(...)
+#endif
 
 
 void _main() {

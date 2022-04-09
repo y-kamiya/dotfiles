@@ -226,6 +226,7 @@ hook_add = '''
 autocmd BufRead,BufNewFile test*.py set filetype=python.pytest
 nmap <silent> <Leader>rr :cclose<CR>:write<CR><Plug>(quickrun)<CR>
 nmap <silent> <Leader>ri :cclose<CR>:write<CR>:QuickRun -input input.txt -runner system<CR>
+nmap <silent> <Leader>re :cclose<CR>:write<CR>:QuickRun -input input.txt -runner system -command 'clang++' -cmdopt '-std=c++17 -stdlib=libc++ -Wall -O2 -D_DEBUG'<CR>
 '''
 hook_source = '''
    let g:quickrun_config = {
