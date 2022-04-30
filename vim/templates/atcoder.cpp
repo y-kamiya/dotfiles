@@ -14,10 +14,18 @@ using ll = long long;
 #define PRINT_DOUBLE(n, x) cout << std::fixed << std::setprecision(n) << x << endl;
 
 void print() { cout << endl; }
-
 template<typename Head, typename... Tail>
 void print(Head h, Tail... t) {
     cout << h << " "; print(t...);
+}
+template<typename T, typename... Tail>
+void print(vector<T> vec, Tail... t) {
+    cout << "[";
+    for (const auto &e : vec) {
+        cout << e << ", ";
+    }
+    cout << "] ";
+    print(t...);
 }
 #ifdef _DEBUG
 #define DEBUG(...) print(__VA_ARGS__)
