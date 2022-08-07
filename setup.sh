@@ -9,6 +9,8 @@ ln -i -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
 ln -i -s $SCRIPT_DIR/.vrapperrc $HOME/.vrapperrc
 ln -i -s $SCRIPT_DIR/.xvimrc $HOME/.xvimrc
 ln -i -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
+ln -i -s $SCRIPT_DIR/.zprofile $HOME/.zprofile
+ln -i -s $SCRIPT_DIR/.ideavimrc $HOME/.ideavimrc
 
 mkdir $HOME/.config
 ln -s $SCRIPT_DIR/vim $HOME/.config/nvim

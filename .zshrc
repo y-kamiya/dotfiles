@@ -6,10 +6,6 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
-if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 autoload zmv
 alias zmv='noglob zmv -W '
 
@@ -41,6 +37,7 @@ export fo='forked'
 export up='upstream'
 export or='origin'
 export XDG_CONFIG_HOME=$HOME/.config
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
 zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incremental-pattern-search-forward
@@ -79,14 +76,6 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" 
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-
-# settings for pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# brew file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
 
 if type kubectl > /dev/null 2>&1; then
     source <(kubectl completion zsh)
