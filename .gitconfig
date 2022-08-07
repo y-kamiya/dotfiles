@@ -23,7 +23,7 @@
     quotepath = false
 [core]
     editor = vim -c \"set fenc=utf-8\"
-	autocrlf = false
+	autoCRLF = input
 [push]
     default = simple
 [include]
