@@ -79,9 +79,26 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
+if [ -f $HOME/.asdf/asdf.sh ]; then
+    source $HOME/.asdf/asdf.sh
+fi
+
+if [ -f $HOME/.asdf/plugins/java/set-java-home.zsh ]; then
+    source $HOME/.asdf/plugins/java/set-java-home.zsh
+fi
+
+if [ -f $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ]; then
+    source $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
+fi
+
 if type kubectl > /dev/null 2>&1; then
     source <(kubectl completion zsh)
 fi
+
+if [ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]; then
+    source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+fi
+
 
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
