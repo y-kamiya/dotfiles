@@ -1,8 +1,10 @@
 bindkey -e
 
 # git completion
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-fpath=(~/.zsh/completion $fpath)
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+FPATH=$HOME/.zsh/completion:$FPATH
 autoload -U compinit
 compinit -u
 

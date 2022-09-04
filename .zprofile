@@ -2,7 +2,7 @@ if [ -f /opt/homebrew/bin/brew ];then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=$HOME/bin:$PATH
 
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
     PATH='/usr/local/opt/coreutils/libexec/gnubin':$PATH
