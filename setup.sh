@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
@@ -12,6 +12,14 @@ ln -i -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
 ln -i -s $SCRIPT_DIR/.zprofile $HOME/.zprofile
 ln -i -s $SCRIPT_DIR/.ideavimrc $HOME/.ideavimrc
 
-mkdir $HOME/.config
-ln -s $SCRIPT_DIR/vim $HOME/.config/nvim
+mkdir -p $HOME/.config
+ln -i -s $SCRIPT_DIR/vim $HOME/.config/nvim
 touch $HOME/.vimrc.local
+
+pushd $SCRIPT_DIR/vim
+if [ ! -e venv-python3 ]; then
+    python -m venv venv-python3
+    source venv-python3/bin/activate
+    pip install neovim pynvim
+fi
+popd
