@@ -97,6 +97,9 @@ hook_add = '''
   \        }
   \      }
   \    }
+  \  },
+  \  'terraform-ls': {
+  \    'whitelist': ['terraform', 'tf']
   \  }
   \}
 '''
