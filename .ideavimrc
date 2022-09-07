@@ -2,21 +2,22 @@ inoremap <C-f> <Esc>
 
 nnoremap ]t :<C-u>tabnext<CR>
 nnoremap [t :<C-u>tabprevious<CR>
-nnoremap [m :<C-u>action MethodUp<CR>
-nnoremap ]m :<C-u>action MethodDown<CR>
-nnoremap [e :<C-u>action GotoPreviousError<CR>
-nnoremap ]e :<C-u>action GotoNextError<CR>
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+nmap [e <Action>(GotoPreviousError)
+nmap ]e <Action>(GotoNextError)
 
-nnoremap <C-o> :<C-u>action Back<CR>
-nnoremap <C-i> :<C-u>action Forward<CR>
-nnoremap g; :<C-u>action JumpToLastChange<CR>
-nnoremap g, :<C-u>action JumpToNextChange<CR>
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+nmap g; <Action>(JumpToLastChange)
+nmap g, <Action>(JumpToNextChange)
 
-nnoremap K :<C-u>action QuickJavaDoc<CR>
-nnoremap <C-k> :<C-u>action ShowUsages<CR>
-nnoremap <space>gi :<C-u>action GotoImplementation<CR>
-nnoremap <space>gs :<C-u>action GotoSuperMethod<CR>
-nnoremap <space>gt :<C-u>action GotoTest<CR>
+nmap K <Action>(QuickJavaDoc)
+nmap <C-k> <Action>(ShowUsages)
+nmap <C-[> <Action>(GotoImplementation)
+nmap <space>gi <C-[> <Action>(GotoImplementation)
+nmap <space>gs <Action>(GotoSuperMethod)
+nmap <space>gt <Action>(GotoTest)
 
 set hls
 set surround
