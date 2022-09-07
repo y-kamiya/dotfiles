@@ -17,9 +17,8 @@ ln -i -s $SCRIPT_DIR/vim $HOME/.config/nvim
 touch $HOME/.vimrc.local
 
 pushd $SCRIPT_DIR/vim
-if [ ! -e venv-python3 ]; then
-    python -m venv venv-python3
-    source venv-python3/bin/activate
-    pip install neovim pynvim
-fi
+./create_python_env.sh
 popd
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
