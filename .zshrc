@@ -1,13 +1,5 @@
 bindkey -e
 
-# git completion
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-FPATH=$HOME/.zsh/completion:$FPATH
-autoload -U compinit
-compinit -u
-
 autoload zmv
 alias zmv='noglob zmv -W '
 
@@ -81,6 +73,7 @@ SAVEHIST=10000
 
 if [ -f $HOME/.asdf/asdf.sh ]; then
     source $HOME/.asdf/asdf.sh
+    FPATH=${ASDF_DIR}/completions:$FPATH
 fi
 
 if [ -f $HOME/.asdf/plugins/java/set-java-home.zsh ]; then
@@ -99,7 +92,14 @@ if [ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completi
     source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 fi
 
-
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+FPATH=$HOME/.zsh/completion:$FPATH
+autoload -U compinit
+compinit -u
+
