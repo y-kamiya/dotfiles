@@ -38,6 +38,7 @@ zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incr
 
 if [ -f ~/.keychain/$HOST-sh ]; then
     keychain --nogui --quiet ~/.ssh/id_rsa
+    keychain --nogui --quiet ~/.ssh/id_ed25519
     source ~/.keychain/$HOST-sh
 fi
 
