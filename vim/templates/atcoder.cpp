@@ -18,13 +18,14 @@ template<typename Head, typename... Tail>
 void print(Head h, Tail... t) {
     cout << h << " "; print(t...);
 }
+template<typename T0, typename T1, typename... Tail>
+void print(pair<T0,T1> p, Tail... t) {
+    cout << "(" << p.first << "," << p.second << ")";
+    print(t...);
+}
 template<typename T, typename... Tail>
 void print(vector<T> vec, Tail... t) {
-    cout << "[";
-    for (const auto &e : vec) {
-        cout << e << ", ";
-    }
-    cout << "] ";
+    cout << "["; for (const auto &e : vec) { cout << e << ", "; } cout << "] ";
     print(t...);
 }
 #ifdef _DEBUG
