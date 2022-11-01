@@ -1,5 +1,8 @@
 bindkey -e
 
+autoload -U compinit
+compinit -u
+
 autoload zmv
 alias zmv='noglob zmv -W '
 
@@ -100,7 +103,5 @@ fi
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
-FPATH=$HOME/.zsh/completion:$FPATH
-autoload -U compinit
-compinit -u
 
+FPATH=$HOME/.zsh/completion:$FPATH
