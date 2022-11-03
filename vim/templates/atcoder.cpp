@@ -1,6 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class ostreamFork {
+public:
+    ostream &os1,&os2;
+    ostreamFork(ostream& os1, ostream& os2) : os1(os1), os2(os2) {}
+};
+template <class Data>
+ostreamFork& operator<<(ostreamFork& osf, Data d) {
+    osf.os1 << d; osf.os2 << d; return osf;
+}
+ostreamFork& operator<<(ostreamFork& osf, ostream& (*f)(ostream&)) {
+    osf.os1 << f; osf.os2 << f; return osf;
+}
+template <class ManipData>
+ostreamFork& operator<<(ostreamFork& osf, ostream& (*f)(ostream&, ManipData)) {
+    osf.os1 << f; osf.os2 << f; return osf;
+}
+
 using ll = long long;
 
 #define REP(i,n) for(int i=0, i##_len=(n); i<i##_len; ++i)
@@ -33,6 +50,9 @@ void print(vector<T> vec, Tail... t) {
 #else
 #define DEBUG(...)
 #endif
+
+ofstream file("_output.txt");
+ostreamFork osf(file, cout);
 
 
 void _main() {
