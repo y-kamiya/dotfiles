@@ -30,26 +30,50 @@ using ll = long long;
 #define Yes(n) cout << ((n) ? "Yes" : "No"  ) << endl
 #define PRINT_DOUBLE(n, x) cout << std::fixed << std::setprecision(n) << x << endl;
 
-void print() { cout << endl; }
+void print() {};
+void print(string s) { cout << s; }
+template<typename Head> void print(Head h) { cout << h; }
+template<typename Head, typename... Tail> void print(Head h, Tail... t);
+template<typename... Tail> void print(string s, Tail... t);
+template<typename T0, typename T1, typename... Tail> void print(pair<T0,T1> p, Tail... t);
+template<template<class...> class Cont, typename... Ts, typename... Tail> void print(Cont<Ts...> ts, Tail... t);
+
+template<typename... Tail>
+void printnext(Tail... t) { cout << " "; print(t...); }
+
 template<typename Head, typename... Tail>
 void print(Head h, Tail... t) {
-    cout << h << " "; print(t...);
+    cout << h; printnext(t...);
+}
+template<typename... Tail>
+void print(string s, Tail... t) {
+    cout << s; printnext(t...);
 }
 template<typename T0, typename T1, typename... Tail>
 void print(pair<T0,T1> p, Tail... t) {
     cout << "(" << p.first << "," << p.second << ")";
-    print(t...);
+    printnext(t...);
 }
-template<typename T, typename... Tail>
-void print(vector<T> vec, Tail... t) {
-    cout << "["; for (const auto &e : vec) { cout << e << ", "; } cout << "] ";
-    print(t...);
+template<size_t N = 0, typename T>
+void print_tuple(const T &t) {
+    auto d = ", "; if constexpr(N == 0) d = "";
+    if constexpr(N < tuple_size<T>::value) { cout << d << get<N>(t); print_tuple<N+1>(t);}
+}
+template<typename... Ts, typename... Tail>
+void print(tuple<Ts...> h, Tail... t) {
+    cout << "("; print_tuple(h); cout << ")";
+}
+template<template<class...> class Cont, typename... Ts, typename... Tail>
+void print(Cont<Ts...> ts, Tail... t) {
+    cout << "[";  for (const auto &e : ts) {print(e); cout << " ";} cout << "] ";
+    printnext(t...);
 }
 #ifdef _DEBUG
-#define DEBUG(...) print(__VA_ARGS__)
+#define DEBUG(...) print(__VA_ARGS__); cout << endl;
 #else
 #define DEBUG(...)
 #endif
+ 
 
 ofstream file("_output.txt");
 ostreamFork osf(file, cout);
