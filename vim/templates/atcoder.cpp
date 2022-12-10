@@ -20,10 +20,10 @@ ostreamFork& operator<<(ostreamFork& osf, ostream& (*f)(ostream&, ManipData)) {
 
 using ll = long long;
 
-#define REP(i,n) for(int i=0, i##_len=(n); i<i##_len; ++i)
-#define REPR(i,n) for(int i=n;i>=0;i--)
-#define FOR(i,a,b) for(int i=(a);i<(b);++i)
-#define FORR(i,a,b) for(int i=(a);i>=(b);--i)
+#define REP(i,n) for(ll i=0, i##_len=(n); i<i##_len; ++i)
+#define REPR(i,n) for(ll i=n;i>=0;i--)
+#define FOR(i,a,b) for(ll i=(a);i<(b);++i)
+#define FORR(i,a,b) for(ll i=(a);i>=(b);--i)
 #define ALL(x) (x).begin(),(x).end()
 #define UNIQUE(v) v.erase( unique(v.begin(), v.end()), v.end() );
 #define YES(n) cout << ((n) ? "YES" : "NO"  ) << endl
