@@ -69,7 +69,7 @@ void print(Cont<Ts...> ts, Tail... t) {
     printnext(t...);
 }
 #ifdef _DEBUG
-#define DEBUG(...) print(__VA_ARGS__); cout << endl;
+#define DEBUG(...) { print(__VA_ARGS__); cout << endl; }
 #else
 #define DEBUG(...)
 #endif
