@@ -58,6 +58,8 @@ hook_add = '''
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 100
@@ -91,12 +93,14 @@ hook_add = '''
   \  'pylsp-all': {
   \    'workspace_config': {
   \      'pylsp-all': {
-  \        'configurationSources': ['flake8'],
+  \        'configurationSources': ['pflake8'],
   \        'plugins': {
-  \          'pylsp_mypy': { 'enabled': 1 }
+  \          'pylsp_mypy': { 'enabled': 1 },
+  \          'pyproject-flake8': { 'enabled': 1 },
   \        }
   \      }
-  \    }
+  \    },
+  \    'whitelist': ['py']
   \  },
   \  'terraform-ls': {
   \    'whitelist': ['terraform', 'tf']
@@ -177,3 +181,6 @@ hook_add = '''
   nmap <Leader>v [vista]
   nnoremap <silent> [vista] :<C-u>Vista!!<CR>
 '''
+
+[[plugins]]
+repo = 'yoshida-m-3/vim-im-select'
