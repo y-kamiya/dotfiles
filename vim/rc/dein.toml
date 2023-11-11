@@ -17,18 +17,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = 'context_filetype.vim'
-if = "has('lua') && !has('nvim')"
-on_i = 1
-hook_source = '''
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#auto_completion_start_length = 2
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#max_list = 5
-'''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   set laststatus=2
@@ -132,35 +120,6 @@ hook_add = '''
 
 [[plugins]]
 repo = "y-kamiya/automkdir.vim"
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-if = "has('nvim')"
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <silent><expr> <CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
-'''
-hook_source = '''
-  call deoplete#custom#option({
-      \ 'auto_complete': v:true,
-      \ 'min_pattern_length': 2,
-      \ 'auto_complete_delay': 0,
-      \ 'auto_refresh_delay': 20,
-      \ 'refresh_always': v:true,
-      \ 'smart_case': v:true,
-      \ 'camel_case': v:true,
-      \ })
-  call deoplete#custom#option('sources', {
-      \ 'python': ['lsp', 'dictionary', 'file'],
-      \ 'vim': ['vim', 'buffer', 'dictionary', 'file'],
-      \})
-  " call deoplete#enable()
-'''
-
-[[plugins]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
-depends = 'deoplete.nvim'
 
 [[plugins]]
 repo = 'liuchengxu/vista.vim'

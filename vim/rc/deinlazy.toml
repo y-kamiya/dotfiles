@@ -369,14 +369,6 @@ repo = 'osyo-manga/vim-reunions'
 on_source = ['vim-marching']
 
 [[plugins]]
-repo = 'osyo-manga/vim-marching'
-on_ft = ['cpp', 'c']
-on_event = ['FocusLost', 'CursorHold']
-hook_add = '''
-  let g:marching_enable_neocomplete = 1
-'''
-
-[[plugins]]
 repo = 'vim-scripts/dbext.vim'
 on_event = ['FocusLost', 'CursorHold']
 
@@ -485,3 +477,45 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'tyru/open-browser-github.vim'
 depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
+depends = 'denops.vim'
+hook_source = '''
+  call ddc#custom#patch_global('ui', 'native')
+  call ddc#custom#patch_global('sources', ['around'])
+  call ddc#custom#patch_global('sourceOptions', #{
+        \ around: #{mark: '[A]'},
+        \ _: {
+        \   'matchers': ['matcher_head'],
+        \   'sorters': ['sorter_rank']},
+        \ })
+  call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-native'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-filter-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-filter-sorter_rank'
+on_source = 'ddc.vim'
+
+
+
