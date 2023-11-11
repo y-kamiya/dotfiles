@@ -12,7 +12,6 @@
     wdi = diff --word-diff
     graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
     gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    pullr = pull --rebase
     cb = rev-parse --abbrev-ref HEAD
     lg = log --oneline --decorate --graph
     fe = fetch
@@ -26,6 +25,8 @@
 	autoCRLF = input
 [push]
     default = simple
+[pull]
+    rebase = true
 [include]
     path = ~/.gitconfig.local
 [filter "lfs"]
@@ -33,7 +34,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[pull]
-	rebase = true
 [init]
 	defaultBranch = main
