@@ -224,14 +224,16 @@ repo = 'thinca/vim-quickrun'
 on_map = [['n', '<Plug>']]
 hook_add = '''
 nmap <silent> <Leader>rr :cclose<CR>:write<CR><Plug>(quickrun)<CR>
+nmap <silent> <Leader>rt :cclose<CR>:write<CR>:QuickRun -runner terminal<CR>
 nmap <silent> <Leader>ri :cclose<CR>:write<CR>:QuickRun -input input.txt -runner system<CR>
 nmap <silent> <Leader>re :cclose<CR>:write<CR>:QuickRun -input input.txt -runner system -command 'clang++' -cmdopt '-std=c++17 -stdlib=libc++ -Wall -O2 -D_DEBUG'<CR>
 '''
 hook_source = '''
+   const s:runner = has('nvim') ? "system" : "vimproc"
    let g:quickrun_config = {
    \   '_': {
    \     'input': '=%{b:input}', 'cmdopt': '%{b:cmdopt}', 'args': '%{b:args}',
-   \     'runner': 'vimproc',
+   \     'runner': s:runner,
    \     'runner/vimproc/updatetime': 50,
    \     'outputter' : 'error',
    \     'outputter/buffer/opener' : 'new',
