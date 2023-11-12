@@ -487,19 +487,27 @@ on_event = 'InsertEnter'
 depends = 'denops.vim'
 hook_source = '''
   call ddc#custom#patch_global('ui', 'pum')
-  call ddc#custom#patch_global('sources', ['vim-lsp', 'around'])
+  call ddc#custom#patch_global('sources', ['vim-lsp', 'buffer', 'file', 'vsnip'])
   call ddc#custom#patch_global('sourceOptions', #{
-        \ around: #{
-        \   mark: '[A]'
+        \ buffer: #{
+        \   mark: '[B]',
+        \ },
+        \ file: #{
+        \   mark: '[F]',
+        \   forceCompletionPattern: '\S/\S*',
         \ },
         \ vim-lsp: #{
         \   mark: '[lsp]',
         \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
         \   minAutoCompleteLength: 1,
         \ },
+        \ vsnip: #{
+        \   mark: '[snip]',
+        \ },
         \ _: #{
-        \   matchers: ['matcher_head'],
-        \   sorters: ['sorter_rank']},
+        \   matchers: ['matcher_fuzzy'],
+        \   sorters: ['sorter_fuzzy']},
+        \   converters: ['converter_fuzzy'],
         \ })
   call ddc#enable()
 '''
@@ -521,11 +529,19 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc-ui-pum'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-around'
+repo = 'matsui54/ddc-buffer'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-source-file'
 on_source = 'ddc.vim'
 
 [[plugins]]
@@ -537,5 +553,13 @@ repo = 'Shougo/ddc-filter-sorter_rank'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'shun/ddc-source-vim-lsp'
 on_source = ['ddc.vim', 'vim-lsp']
+
+[[plugins]]
+repo = 'uga-rosa/ddc-source-vsnip'
+on_source = ['ddc.vim', 'vim-vsnip']
