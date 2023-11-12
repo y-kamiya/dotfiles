@@ -486,23 +486,42 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = 'denops.vim'
 hook_source = '''
-  call ddc#custom#patch_global('ui', 'native')
-  call ddc#custom#patch_global('sources', ['around'])
+  call ddc#custom#patch_global('ui', 'pum')
+  call ddc#custom#patch_global('sources', ['vim-lsp', 'around'])
   call ddc#custom#patch_global('sourceOptions', #{
-        \ around: #{mark: '[A]'},
-        \ _: {
-        \   'matchers': ['matcher_head'],
-        \   'sorters': ['sorter_rank']},
+        \ around: #{
+        \   mark: '[A]'
+        \ },
+        \ vim-lsp: #{
+        \   mark: '[lsp]',
+        \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
+        \   minAutoCompleteLength: 1,
+        \ },
+        \ _: #{
+        \   matchers: ['matcher_head'],
+        \   sorters: ['sorter_rank']},
         \ })
   call ddc#enable()
 '''
 
 [[plugins]]
-repo = 'Shougo/ddc-ui-pum'
-on_source = 'ddc.vim'
+repo = 'Shougo/pum.vim'
+hook_add = '''
+  inoremap <silent><expr> <TAB>
+        \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+        \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+        \ '<TAB>' : ddc#map#manual_complete()
+  inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+  inoremap <silent><expr> <C-n>
+        \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
+        \ ddc#map#manual_complete()
+  inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+  inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+  inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+'''
 
 [[plugins]]
-repo = 'Shougo/ddc-ui-native'
+repo = 'Shougo/ddc-ui-pum'
 on_source = 'ddc.vim'
 
 [[plugins]]
@@ -517,5 +536,6 @@ on_source = 'ddc.vim'
 repo = 'Shougo/ddc-filter-sorter_rank'
 on_source = 'ddc.vim'
 
-
-
+[[plugins]]
+repo = 'shun/ddc-source-vim-lsp'
+on_source = ['ddc.vim', 'vim-lsp']
