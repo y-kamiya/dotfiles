@@ -507,7 +507,6 @@ hook_source = '''
         \ _: #{
         \   matchers: ['matcher_fuzzy'],
         \   sorters: ['sorter_fuzzy']},
-        \   converters: ['converter_fuzzy'],
         \ })
   call ddc#enable()
 '''
