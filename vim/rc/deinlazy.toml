@@ -1,83 +1,4 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
-if = "!has('nvim')"
-depends = 'neomru.vim'
-on_cmd = ['Unite']
-hook_source = '''
-  " let g:unite_source_grep_max_candidates = 200
-  let g:unite_enable_start_insert = 0
-  let g:unite_source_bookmark_directory = expand('~/.unite/bookmark')
- 
-  " call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
- 
-  autocmd myvimrc FileType unite imap <silent><buffer> <C-f> <Plug>(unite_insert_leave)
- 
-  if executable('ag')
-      " Use ag in unite grep source.
-      let g:unite_source_grep_command = 'ag'
-      let g:unite_source_grep_recursive_opt = ''
-      let g:unite_source_grep_default_opts =
-      \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-      \  ' ''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' '
-  endif
-'''
-hook_add = '''
-  nnoremap [unite] <Nop>
-  nmap <Leader>u [unite]
-  nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-  nnoremap <silent> [unite]c :<C-u>Unite<Space>bookmark<CR>
-  nnoremap <silent> [unite]y :<C-u>Unite<Space>history/yank<CR>
-  nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
-  nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-  nnoremap <silent> [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
-  nnoremap <silent> [unite]R :<C-u>Unite<Space>register<CR>
-  nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-if = "has('nvim')"
-depends = 'neomru.vim'
-on_cmd = ['Denite']
-hook_post_source = '''
-	call denite#custom#var('grep', 'command', ['ag'])
-  call denite#custom#map('insert', '<C-f>', '<denite:enter_mode:normal>')
-  call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>')
-'''
-hook_add = '''
-  nnoremap [denite] <Nop>
-  nmap <Leader>d [denite]
-  nnoremap <silent> [denite]b :<C-u>Denite<Space>buffer<CR>
-  nnoremap <silent> [denite]p :<C-u>Denite<Space>file/rec<CR>
-  nnoremap <silent> [denite]m :<C-u>Denite<Space>file_mru<CR>
-  nnoremap <silent> [denite]r :<C-u>Denite<Space>register<CR>
-  nnoremap <silent> [denite]g :<C-u>Denite<Space>grep<Space>-no-empty<CR>
-  nnoremap <silent> [denite]h :<C-u>Denite<Space>help<CR>
-  nnoremap <silent> [denite]l :<C-u>Denite<Space>line<CR>
-  nnoremap <silent> [denite]f :<C-u>Denite<Space>-buffer-name=search<Space>-resume<CR>
-'''
-[plugins.ftplugin]
-denite = '''
-nnoremap <silent><buffer><expr> <CR>
-\ denite#do_map('do_action')
-nnoremap <silent><buffer><expr> d
-\ denite#do_map('do_action', 'delete')
-nnoremap <silent><buffer><expr> p
-\ denite#do_map('do_action', 'preview')
-nnoremap <silent><buffer><expr> q
-\ denite#do_map('quit')
-nnoremap <silent><buffer><expr> i
-\ denite#do_map('open_filter_buffer')
-nnoremap <silent><buffer><expr> <Space>
-\ denite#do_map('toggle_select').'j'
-'''
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
-[[plugins]]
 repo = 'Shougo/vimfiler.vim'
 if = "!has('nvim')"
 # "depends = 'unite.vim'   this prevents setting filetype, unite.vim can not be set as depends?
@@ -295,12 +216,6 @@ on_event = ['FocusLost', 'CursorHold']
 repo = 'ujihisa/ref-hoogle'
 on_ft = ['haskell']
 on_event = ['FocusLost', 'CursorHold']
-
-[[plugins]]
-repo = 'ujihisa/unite-haskellimport'
-on_ft = ['haskell']
-on_event = ['FocusLost', 'CursorHold']
-hook_add = 'nnoremap <buffer> <space>I :<C-u>UniteWithCursorWord haskellimport<Cr>'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
@@ -562,3 +477,114 @@ on_source = ['ddc.vim', 'vim-lsp']
 [[plugins]]
 repo = 'uga-rosa/ddc-source-vsnip'
 on_source = ['ddc.vim', 'vim-vsnip']
+
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+depends = 'denops.vim'
+hook_add =  '''
+  nnoremap [ddu] <Nop>
+  nmap <Leader>d [ddu]
+  nnoremap <silent> [ddu]p <Cmd>call ddu#start(#{name: 'file_rec'})<CR>
+  nnoremap <silent> [ddu]r <Cmd>call ddu#start(#{sources: [#{name: 'register'}]})<CR>
+  nnoremap <silent> [ddu]b <Cmd>call ddu#start(#{sources: [#{name: 'buffer'}]})<CR>
+  nnoremap <silent> [ddu]h <Cmd>call ddu#start(#{sources: [#{name: 'help'}]})<CR>
+'''
+hook_source = '''
+  call ddu#custom#patch_global(#{
+      \   ui: 'ff',
+      \   uiParams: #{
+      \     ff: #{
+      \       prompt: '> ',
+      \     },
+      \   },
+      \   sourceOptions: #{
+      \     _: #{
+      \       matchers: ['matcher_substring'],
+      \     },
+      \   },
+      \   kindOptions: #{
+      \     file: #{
+      \       defaultAction: 'open',
+      \     },
+      \     help: #{
+      \       defaultAction: 'open',
+      \     },
+      \   },
+      \   filterParams: #{
+      \     matcher_substring: #{
+      \       highlightMatched: 'Search',
+      \     },
+      \   },
+      \ })
+  call ddu#custom#patch_local('file_rec', #{
+      \   sources: [#{
+      \     name: 'file_rec',
+      \     params: #{
+      \       ignoredDirectories: ['.git', '.mypy_cache'],
+      \     },
+      \   }],
+      \   uiParams: #{
+      \     ff: #{
+      \       prompt: '> ',
+      \       startFilter: v:true,
+      \     },
+      \   },
+      \ })
+'''
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+on_source = 'ddu.vim'
+hook_add = '''
+autocmd FileType ddu-ff call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space>
+        \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer><silent> i
+        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> q
+        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+endfunction
+
+autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+function! s:ddu_filter_my_settings() abort
+  inoremap <buffer> <CR>
+	  \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+  nnoremap <buffer> <CR>
+	  \ <Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+  nnoremap <buffer> q
+	  \ <Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+    \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+endfunction
+'''
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-register'
+depends = 'ddu-kind-word'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-help'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-word'
+on_source = 'ddu.vim'
