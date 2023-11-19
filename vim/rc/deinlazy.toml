@@ -484,7 +484,13 @@ depends = 'denops.vim'
 hook_add =  '''
   nnoremap [ddu] <Nop>
   nmap <Leader>d [ddu]
-  nnoremap <silent> [ddu]p <Cmd>call ddu#start(#{name: 'file_rec'})<CR>
+  nnoremap <silent> [ddu]p <Cmd>call ddu#start(#{name: 'file_rec')<CR>
+  nnoremap <silent> [ddu]g <Cmd>call ddu#start(#{name: 'grep',
+        \ sourceParams: #{
+        \   rg: #{
+        \     input: input('Pattern: '),
+        \   },
+        \ }})<CR>
   nnoremap <silent> [ddu]r <Cmd>call ddu#start(#{sources: [#{name: 'register'}]})<CR>
   nnoremap <silent> [ddu]b <Cmd>call ddu#start(#{sources: [#{name: 'buffer'}]})<CR>
   nnoremap <silent> [ddu]h <Cmd>call ddu#start(#{sources: [#{name: 'help'}]})<CR>
@@ -530,6 +536,14 @@ hook_source = '''
       \     },
       \   },
       \ })
+  call ddu#custom#patch_local('grep', #{
+      \   sources: [#{
+      \     name: 'rg',
+      \     params: #{
+      \        args: ['--json'],
+      \     },
+      \   }],
+      \ })
 '''
 
 [[plugins]]
@@ -571,6 +585,10 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-rg'
 on_source = 'ddu.vim'
 
 [[plugins]]
