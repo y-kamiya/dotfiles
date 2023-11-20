@@ -484,7 +484,7 @@ depends = 'denops.vim'
 hook_add =  '''
   nnoremap [ddu] <Nop>
   nmap <Leader>d [ddu]
-  nnoremap <silent> [ddu]p <Cmd>call ddu#start(#{name: 'file_rec')<CR>
+  nnoremap <silent> [ddu]p <Cmd>call ddu#start(#{name: 'file_rec'})<CR>
   nnoremap <silent> [ddu]g <Cmd>call ddu#start(#{name: 'grep',
         \ sourceParams: #{
         \   rg: #{
