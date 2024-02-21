@@ -385,6 +385,16 @@ nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
 \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 '''
 
+[[plugins]]
+repo = 'github/copilot.vim'
+on_event = 'InsertEnter'
+hook_add = '''
+  inoremap [copilot] <Nop>
+  imap <Leader>c [copilot]
+  imap <silent> [copilot]s <Plug>(copilot-suggest)
+  imap <silent> [copilot][ <Plug>(copilot-previous)
+  imap <silent> [copilot]] <Plug>(copilot-next)
+'''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
