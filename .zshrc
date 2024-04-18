@@ -74,6 +74,15 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" 
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+HIST_STAMPS="yyyy-mm-dd"
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
 
 if [ -f $HOME/.asdf/asdf.sh ]; then
     source $HOME/.asdf/asdf.sh
