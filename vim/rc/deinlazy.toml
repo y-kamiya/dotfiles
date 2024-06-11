@@ -390,7 +390,7 @@ repo = 'github/copilot.vim'
 on_event = 'InsertEnter'
 hook_add = '''
   inoremap [copilot] <Nop>
-  imap <Leader>c [copilot]
+  imap <C-b> [copilot]
   imap <silent> [copilot]s <Plug>(copilot-suggest)
   imap <silent> [copilot][ <Plug>(copilot-previous)
   imap <silent> [copilot]] <Plug>(copilot-next)
