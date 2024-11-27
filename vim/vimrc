@@ -94,6 +94,7 @@ set virtualedit+=block
 set timeoutlen=300
 set ttimeoutlen=50
 set mouse=
+set notermguicolors
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
