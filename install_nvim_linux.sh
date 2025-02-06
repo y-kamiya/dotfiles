@@ -6,9 +6,13 @@ mkdir -p $HOME/.local/bin
 curl -fsSL https://deno.land/x/install/install.sh | sh
 
 # install nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-tar xzf nvim-linux64.tar.gz
-mv nvim-linux64 $HOME/.local/nvim
+name=nvim-linux-x86_64
+tar=$name.tar.gz
+if [ -z $tar ]; then
+    curl -LO https://github.com/neovim/neovim/releases/download/stable/$tar
+fi
+tar xzf $tar
+mv $name $HOME/.local/nvim
 
 # install rg
 rg_name=ripgrep-13.0.0-x86_64-unknown-linux-musl
