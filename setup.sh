@@ -2,21 +2,21 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-ln -i -s $SCRIPT_DIR/vim $HOME/.vim
-ln -i -s $SCRIPT_DIR/.ctags $HOME/.ctags
-ln -i -s $SCRIPT_DIR/.gitconfig $HOME/.gitconfig
-ln -i -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
-ln -i -s $SCRIPT_DIR/.vrapperrc $HOME/.vrapperrc
-ln -i -s $SCRIPT_DIR/.xvimrc $HOME/.xvimrc
-ln -i -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
-ln -i -s $SCRIPT_DIR/.zprofile $HOME/.zprofile
-ln -i -s $SCRIPT_DIR/.ideavimrc $HOME/.ideavimrc
-ln -i -s $SCRIPT_DIR/.zshrc_env $HOME/.zshrc_env
-ln -i -s $SCRIPT_DIR/.vimrc.local $HOME/.vimrc.local
-ln -i -s $SCRIPT_DIR/.gitconfig.local $HOME/.gitconfig.local
+ln -iTs $SCRIPT_DIR/vim $HOME/.vim
+ln -iTs $SCRIPT_DIR/.ctags $HOME/.ctags
+ln -iTs $SCRIPT_DIR/.gitconfig $HOME/.gitconfig
+ln -iTs $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
+ln -iTs $SCRIPT_DIR/.vrapperrc $HOME/.vrapperrc
+ln -iTs $SCRIPT_DIR/.xvimrc $HOME/.xvimrc
+ln -iTs $SCRIPT_DIR/.zshrc $HOME/.zshrc
+ln -iTs $SCRIPT_DIR/.zprofile $HOME/.zprofile
+ln -iTs $SCRIPT_DIR/.ideavimrc $HOME/.ideavimrc
+ln -iTs $SCRIPT_DIR/.zshrc_env $HOME/.zshrc_env
+ln -iTs $SCRIPT_DIR/.vimrc.local $HOME/.vimrc.local
+ln -iTs $SCRIPT_DIR/.gitconfig.local $HOME/.gitconfig.local
 
 mkdir -p $HOME/.config
-ln -i -s $SCRIPT_DIR/vim $HOME/.config/nvim
+ln -iTs $SCRIPT_DIR/vim $HOME/.config/nvim
 touch $HOME/.vimrc.local
 
 pushd $SCRIPT_DIR/vim
