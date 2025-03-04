@@ -25,6 +25,8 @@
 	autoCRLF = input
 [push]
     default = simple
+    autoSetupRemote = true
+    followTags = true
 [pull]
     rebase = true
 [include]
@@ -36,3 +38,25 @@
 	required = true
 [init]
 	defaultBranch = main
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[merge]
+    conflictstyle = zdiff3
+[commit]
+    verbose = true
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+[rerere]
+    enabled = true
+    autoupdate = true
