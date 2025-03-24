@@ -77,18 +77,17 @@ nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 hook_add = '''
+  let g:lsp_settings_filetype_python = ['ruff', 'pyright-langserver']
   let g:lsp_settings = {
-  \  'pylsp-all': {
+  \  'pyright-langserver': {
   \    'workspace_config': {
-  \      'pylsp-all': {
-  \        'configurationSources': ['pflake8'],
-  \        'plugins': {
-  \          'pylsp_mypy': { 'enabled': 1 },
-  \          'pyproject-flake8': { 'enabled': 1 },
+  \      'python': {
+  \        'disableOrganizeImports': v:true,
+  \        'analysis': {
+  \          'autoSearchPaths': v:true,
   \        }
   \      }
-  \    },
-  \    'whitelist': ['py']
+  \    }
   \  },
   \  'terraform-ls': {
   \    'whitelist': ['terraform', 'tf']
