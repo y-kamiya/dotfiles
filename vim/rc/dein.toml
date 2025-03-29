@@ -68,10 +68,14 @@ nmap <Leader>l [lsp]
 nnoremap <silent> [lsp]gd :LspDefinition<CR>
 nnoremap <silent> [lsp]gi :LspImplementation<CR>
 nnoremap <silent> [lsp]gr :LspReferences<CR>
-nnoremap <silent> [lsp]R :LspRename<CR>
+nnoremap <silent> [lsp]rn :LspRename<CR>
 nnoremap <silent> [lsp]di :LspDocumentDiagnostics<CR>
 nnoremap <silent> [lsp]ho :LspHover<CR>
+nnoremap <silent> [lsp]pd :LspPeekDefinition<CR>
 nnoremap <silent> [lsp]fo :LspDocumentFormat<CR>
+nnoremap <silent> [lsp]sy :LspDocumentSymbol<CR>
+nnoremap <silent> [lsp]ws :LspWorkspaceSymbol<CR>
+nnoremap <silent> [lsp]pf <plug>(lsp-preview-focus)
 '''
 
 [[plugins]]
@@ -93,6 +97,16 @@ hook_add = '''
   \    'whitelist': ['terraform', 'tf']
   \  }
   \}
+  function! s:on_lsp_buffer_enabled() abort
+    let l:capabilities = lsp#get_server_capabilities('ruff')
+    if !empty(l:capabilities)
+      let l:capabilities.hoverProvider = v:false
+    endif
+  endfunction
+   augroup lsp_install
+        au!
+        autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+   augroup END
 '''
 
 [[plugins]]
