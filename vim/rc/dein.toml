@@ -60,9 +60,6 @@ let g:lsp_diagnostics_signs_warning = {'text': '‼'}
 let g:lsp_diagnostics_signs_information = {'text': 'i'}
 let g:lsp_diagnostics_signs_hint = {'text': '?'}
 
-setlocal omnifunc=lsp#complete
-if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-
 nnoremap [lsp] <Nop>
 nmap <Leader>l [lsp]
 nnoremap <silent> [lsp]gd :LspDefinition<CR>
@@ -98,15 +95,20 @@ hook_add = '''
   \  }
   \}
   function! s:on_lsp_buffer_enabled() abort
-    let l:capabilities = lsp#get_server_capabilities('ruff')
-    if !empty(l:capabilities)
-      let l:capabilities.hoverProvider = v:false
+    setlocal omnifunc=lsp#complete
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+
+    if lsp#is_valid_server_name('ruff')
+      let l:capabilities = lsp#get_server_capabilities('ruff')
+      if !empty(l:capabilities)
+        let l:capabilities.hoverProvider = v:false
+      endif
     endif
   endfunction
-   augroup lsp_install
-        au!
-        autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-   augroup END
+  augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+  augroup END
 '''
 
 [[plugins]]
