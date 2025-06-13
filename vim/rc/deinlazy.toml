@@ -162,10 +162,14 @@ hook_source = '''
    \     'outputter/buffer/running_mark' : 'running...',
    \     'outputter/error/success' : 'buffer',
    \     'outputter/error/error'   : 'quickfix',
+   \     'outputter/quickfix/into' : 1,
    \     'hook/time/enable': 1,
    \   },
    \   'haskell': {
    \     'command': 'runghc',
+   \   },
+   \   'rust': {
+   \     'exec': 'cargo run',
    \   },
    \   'python.pytest': {
    \     'command': 'pytest',
