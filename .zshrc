@@ -36,6 +36,8 @@ export or='origin'
 export XDG_CONFIG_HOME=$HOME/.config
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+export AIDER_EDITOR=nvim
+
 zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
 zle -la history-incremental-pattern-search-forward  && bindkey "^s" history-incremental-pattern-search-forward
 
