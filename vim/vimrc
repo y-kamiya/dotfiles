@@ -55,13 +55,11 @@ augroup myvimrc
 augroup END
  " }}}
 
-:source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
 syntax on
 
 
-set termencoding=utf-8
 " set fileencodings=iso-2021-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,euc-jp,eucjp-ms,cp932
 set title
 set smartindent
@@ -84,7 +82,6 @@ set statusline=%=[%{&enc}/%{&fenc}][%<%F\%m%w]
 set showmatch
 set hlsearch
 set foldmethod=marker
-set pastetoggle=<Leader>P
 set shiftwidth=4
 set tabstop=4
 set tags=.git/tags,.tags,./tags,tags
@@ -95,6 +92,11 @@ set timeoutlen=300
 set ttimeoutlen=50
 set mouse=
 set notermguicolors
+
+if !has('nvim')
+  source $VIMRUNTIME/macros/matchit.vim
+  set termencoding=utf-8
+endif
 
 " 対応するカッコの表示をしない
 let loaded_matchparen = 1
