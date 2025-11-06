@@ -508,8 +508,21 @@ hook_add =  '''
   nnoremap <silent> [ddu]r <Cmd>call ddu#start(#{sources: [#{name: 'register'}]})<CR>
   nnoremap <silent> [ddu]b <Cmd>call ddu#start(#{sources: [#{name: 'buffer'}]})<CR>
   nnoremap <silent> [ddu]h <Cmd>call ddu#start(#{sources: [#{name: 'help'}]})<CR>
+  nnoremap <silent> [ddu]ai <Cmd>call ddu#start({'sources': [{'name': 'aider'}]})<CR>
 '''
 hook_source = '''
+  call ddu#custom#patch_global(#{
+      \ sources: [#{name: 'aider'}],
+      \ sourceOptions: #{
+      \   aider: #{matchers: ['matcher_substring']},
+      \ },
+      \ kindOptions: #{
+      \   aider: #{
+      \     defaultAction: 'add',
+      \   },
+      \ },
+      \ })
+  
   call ddu#custom#patch_global(#{
       \   ui: 'ff',
       \   uiParams: #{
@@ -628,8 +641,8 @@ hook_add = '''
 let g:aider_command = 'aider --no-auto-commits'
 " Floating window settings
 let g:aider_buffer_open_type = 'floating'
-" let g:aider_floatwin_width = 100
-" let g:aider_floatwin_height = 20
+let g:aider_floatwin_width = 120
+let g:aider_floatwin_height = 80
 let g:aider_floatwin_border = "double"
 let g:aider_floatwin_border_style = "minimal"
 
