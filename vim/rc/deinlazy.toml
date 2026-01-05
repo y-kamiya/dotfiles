@@ -28,6 +28,12 @@ on_cmd = ['Linediff']
 repo = 'tpope/vim-fugitive'
 on_cmd = ['Git']
 on_event = ['FocusLost', 'CursorHold']
+hook_source = '''
+augroup fugitive_pager_mappings
+    autocmd!
+    autocmd User FugitivePager nnoremap <buffer> X :G branch -D <C-R><C-F>
+augroup END
+'''
 hook_post_source = 'doautoall fugitive BufNewFile'
 
 [[plugins]]
