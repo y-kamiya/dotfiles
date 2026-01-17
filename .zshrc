@@ -86,18 +86,7 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 
-# if [ -f $HOME/.asdf/asdf.sh ]; then
-#     source $HOME/.asdf/asdf.sh
-#     FPATH=${ASDF_DIR}/completions:$FPATH
-# fi
-
-# if [ -f $HOME/.asdf/plugins/java/set-java-home.zsh ]; then
-#     source $HOME/.asdf/plugins/java/set-java-home.zsh
-# fi
-#
-# if [ -f $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ]; then
-#     source $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
-# fi
+eval "$(mise activate zsh)"
 
 if type kubectl > /dev/null 2>&1; then
     source <(kubectl completion zsh)
@@ -110,11 +99,5 @@ fi
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
-#
-# if type brew &>/dev/null; then
-#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-# fi
-
-# FPATH=$HOME/.zsh/completion:$FPATH
 
 # zprof
