@@ -147,7 +147,29 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'michaelb/sniprun'
+if = "has('nvim')"
+build = 'sh ./install.sh 1' 
+hook_add = '''
+nnoremap [sniprun] <Nop>
+nmap <Leader>r [sniprun]
+nnoremap [sniprun]r <cmd>%SnipRun<cr>
+vnoremap r <cmd>SnipRun<cr>
+'''
+lua_source = '''
+require('sniprun').setup({
+  display = {
+    "Terminal",
+  },
+  display_options = {
+    terminal_position = "horizontal",
+  }
+})
+'''
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
+if = "!has('nvim')"
 on_map = [['n', '<Plug>']]
 hook_add = '''
 nmap <silent> <Leader>rr :cclose<CR>:write<CR><Plug>(quickrun)<CR>
