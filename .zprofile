@@ -21,7 +21,7 @@ if [ -d /usr/local/Cellar/icu4c/58.1/bin ]; then
     PATH=/usr/local/Cellar/icu4c/58.1/bin/:$PATH
 fi
 
-if [-d /opt/homebrew/opt/qt5/bin ]; then
+if [ -d /opt/homebrew/opt/qt5/bin ]; then
     PATH=/opt/homebrew/opt/qt5/bin:$PATH
 fi
 
