@@ -26,9 +26,6 @@ popd
 if [ ! -d $HOME/.tmux ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-if [ ! -d $HOME/.asdf ]; then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-fi
 
 if [ -f $SCRIPT_DIR/setup_local.sh ]; then
     ./setup_local.sh

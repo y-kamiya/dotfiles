@@ -4,4 +4,3 @@ dpp
 vimbackup
 vim/.init.vim-rplugin~
 venv*
-.tool-versions
