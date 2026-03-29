@@ -15,13 +15,19 @@ ln -iTs $SCRIPT_DIR/.zshrc_env $HOME/.zshrc_env
 ln -iTs $SCRIPT_DIR/.vimrc.local $HOME/.vimrc.local
 ln -iTs $SCRIPT_DIR/.gitconfig.local $HOME/.gitconfig.local
 
-mkdir -p $HOME/.config
+mkdir -p $HOME/.config/mise/conf.d
+ln -iTs $SCRIPT_DIR/mise_deno.toml $HOME/.config/mise/conf.d/mise_deno.toml 
 ln -iTs $SCRIPT_DIR/vim $HOME/.config/nvim
 touch $HOME/.vimrc.local
 
-pushd $SCRIPT_DIR/vim
-./create_python_env.sh
-popd
+if ! command -v mise &>/dev/null; then
+    curl https://mise.run | sh
+fi
+export PATH="$HOME/.local/bin:$PATH"
+mise install
+
+./vim/setup.sh
+
 
 if [ ! -d $HOME/.tmux ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -11,3 +11,5 @@ if [ ! -d $DPP_BASE/Shougo/dpp.vim ]; then
     git clone https://github.com/Shougo/dpp-protocol-git  $DPP_BASE/Shougo/dpp-protocol-git
     git clone https://github.com/vim-denops/denops.vim    $DPP_BASE/vim-denops/denops.vim
 fi
+
+./create_python_env.sh
