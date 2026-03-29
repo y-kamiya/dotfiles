@@ -20,6 +20,7 @@ let s:dpp_repos = s:dpp_base . '/repos/github.com'
 execute 'set runtimepath^=' . s:dpp_repos . '/Shougo/dpp.vim'
 
 if dpp#min#load_state(s:dpp_base)
+  echomsg '[dpp] load_state failed: generating new state'
   execute 'set runtimepath^=' . s:dpp_repos . '/Shougo/dpp-ext-toml'
   execute 'set runtimepath^=' . s:dpp_repos . '/Shougo/dpp-ext-lazy'
   execute 'set runtimepath^=' . s:dpp_repos . '/Shougo/dpp-ext-installer'
@@ -30,7 +31,21 @@ if dpp#min#load_state(s:dpp_base)
   autocmd User Dpp:makeStatePost ++once
         \ call dpp#min#load_state(s:dpp_base)
         \| call dpp#async_ext_action('installer', 'install')
+  autocmd User Dpp:ext:installer:updateDone ++once
+        \ call system('echo "[dpp] Plugins installed. Please restart vim."')
 endif
+
+function! s:UpdateDppState() abort
+  let l:changed = dpp#check_files()
+  if empty(l:changed)
+    return
+  endif
+  autocmd User Dpp:makeStatePost ++once echomsg '[dpp] State updated.'
+  call dpp#make_state(s:dpp_base, s:config_ts)
+endfunction
+augroup myvimrc
+  autocmd BufWritePost */rc/* call s:UpdateDppState()
+augroup END
 
 augroup myvimrc
   autocmd BufRead,BufNewFile dein.toml set filetype=vim
