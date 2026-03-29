@@ -37,25 +37,6 @@ augroup END
 hook_post_source = 'doautoall fugitive BufNewFile'
 
 [[plugins]]
-repo = 'joonty/vdebug'
-on_ft = 'php'
-hook_source = '''
-  let g:vdebug_options = {
-  \   'path_maps': { '/synced_folders/rpg-server': '/usr/local/funzio/cc-server' }
-  \ , 'ide_key': ''
-  \}
-'''
-
-[[plugins]]
-repo = 'stephpy/vim-php-cs-fixer'
-on_ft = 'php'
-hook_source = '''
-  let g:php_cs_fixer_rules = '@PSR2'
-  let g:php_cs_fixer_path = '/usr/local/bin/php-cs-fixer'
-  nnoremap <silent> <Leader>fix :call PhpCsFixerFixFile()<CR>
-'''
-
-[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch']
 hook_add = '''
@@ -178,12 +159,11 @@ nmap <silent> <Leader>ri :cclose<CR>:write<CR>:QuickRun -input input.txt -runner
 nmap <silent> <Leader>re :cclose<CR>:write<CR>:QuickRun -input input.txt -runner system -command 'clang++' -cmdopt '-std=c++17 -stdlib=libc++ -Wall -O2 -D_DEBUG'<CR>
 '''
 hook_source = '''
-   const s:runner = has('nvim') ? "system" : "vimproc"
+   const s:runner = "job"
    let g:quickrun_config = {
    \   '_': {
    \     'input': '=%{b:input}', 'cmdopt': '%{b:cmdopt}', 'args': '%{b:args}',
    \     'runner': s:runner,
-   \     'runner/vimproc/updatetime': 50,
    \     'outputter' : 'error',
    \     'outputter/buffer/opener' : 'new',
    \     'outputter/buffer/close_on_empty' : 1,
@@ -247,16 +227,6 @@ on_event = ['FocusLost', 'CursorHold']
 [[plugins]]
 repo = 'ujihisa/ref-hoogle'
 on_ft = ['haskell']
-on_event = ['FocusLost', 'CursorHold']
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['js']
-on_event = ['FocusLost', 'CursorHold']
-
-[[plugins]]
-repo = 'briancollins/vim-jst'
-on_ft = ['js']
 on_event = ['FocusLost', 'CursorHold']
 
 [[plugins]]

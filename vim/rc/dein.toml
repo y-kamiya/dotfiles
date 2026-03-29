@@ -17,10 +17,6 @@ repo = 'Shougo/dpp-protocol-git'
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
