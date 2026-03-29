@@ -436,9 +436,6 @@ repo = 'tyru/open-browser-github.vim'
 depends = 'open-browser.vim'
 
 [[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = 'denops.vim'

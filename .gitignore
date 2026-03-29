@@ -1,5 +1,6 @@
 bundle
 dein
+dpp
 vimbackup
 vim/.init.vim-rplugin~
 venv*
