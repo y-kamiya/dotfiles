@@ -16,17 +16,18 @@ ln -iTs $SCRIPT_DIR/.vimrc.local $HOME/.vimrc.local
 ln -iTs $SCRIPT_DIR/.gitconfig.local $HOME/.gitconfig.local
 
 mkdir -p $HOME/.config/mise/conf.d
-ln -iTs $SCRIPT_DIR/mise_deno.toml $HOME/.config/mise/conf.d/mise_deno.toml 
+ln -iTs $SCRIPT_DIR/mise_config.toml $HOME/.config/mise/conf.d/mise_config.toml 
 ln -iTs $SCRIPT_DIR/vim $HOME/.config/nvim
 touch $HOME/.vimrc.local
 
 if ! command -v mise &>/dev/null; then
     curl https://mise.run | sh
 fi
+mkdir -p $HOME/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
 mise install
 
-./vim/setup.sh
+bash vim/setup.sh
 
 
 if [ ! -d $HOME/.tmux ]; then
