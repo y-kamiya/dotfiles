@@ -130,7 +130,7 @@ hook_add = '''
 [[plugins]]
 repo = 'michaelb/sniprun'
 if = "has('nvim')"
-build = 'sh ./install.sh 1' 
+extAttrs = {installerBuild = 'sh ./install.sh 1'}
 hook_add = '''
 nnoremap [sniprun] <Nop>
 nmap <Leader>r [sniprun]
@@ -672,4 +672,5 @@ endfunction
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown']
-build = 'sh -c "cd app && npx --yes yarn install"' 
+extAttrs = {installerBuild = 'sh -c "cd app && npx --yes yarn install"'}
+
