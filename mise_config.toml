@@ -2,3 +2,5 @@
 "deno" = "2.7.9"
 "ripgrep" = "latest"
 "aqua:neovim" = "0.11.4"
+"aqua:codex" = "latest"
+"claude-code" = "2.1.81"
