@@ -674,3 +674,22 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown']
 extAttrs = {installerBuild = 'sh -c "cd app && npx --yes yarn install"'}
 
+[[plugins]]
+repo = 'jpalardy/vim-slime'
+on_map = [['n', '<Plug>'], ['x', '<Plug>']]
+on_event = ['FocusLost', 'CursorHold']
+hook_add = '''
+let g:slime_no_mappings = 1
+let g:slime_target = "tmux"
+let g:slime_bracketed_paste = 1
+
+nnoremap [slime] <Nop>
+xnoremap [slime] <Nop>
+nmap <Leader>l [slime]
+xmap <Leader>l [slime]
+xmap [slime] <Plug>SlimeRegionSend
+nmap [slime] <Plug>SlimeMotionSend
+nmap [slime]s <Plug>SlimeLineSend
+nmap <silent> [slime]f :%SlimeSend<CR>
+nmap <silent> [slime]c :SlimeConfig<CR>
+'''
