@@ -1,5 +1,16 @@
 [[plugins]]
 repo = 'Shougo/dpp.vim'
+hook_add = '''
+nnoremap [dpp] <Nop>
+nmap <Leader>dp [dpp]
+nnoremap <silent> [dpp]i :call dpp#async_ext_action('installer', 'install')<CR>
+nnoremap <silent> [dpp]u :call dpp#async_ext_action('installer', 'update')<CR>
+nnoremap <silent> [dpp]s :call dpp#make_state()<CR>
+
+command! DppInstall call dpp#async_ext_action('installer', 'install')
+command! -nargs=? DppUpdate call dpp#async_ext_action('installer', 'update', <q-args> == '' ? {} : {'names': [<q-args>]})
+command! DppState call dpp#make_state()
+'''
 
 [[plugins]]
 repo = 'Shougo/dpp-ext-toml'
