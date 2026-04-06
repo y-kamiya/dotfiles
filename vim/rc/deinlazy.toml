@@ -230,23 +230,6 @@ on_ft = ['haskell']
 on_event = ['FocusLost', 'CursorHold']
 
 [[plugins]]
-repo = 'mattn/webapi-vim'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'moznion/hateblo.vim'
-depends = ['webapi-vim']
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_cmd = ['PrevimOpen']
-on_ft = ['markdown']
-hook_add = '''
-  let g:previm_open_cmd = 'open -a Firefox'
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_i = 1
 depends = 'neosnippet-snippets'
