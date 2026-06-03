@@ -4,3 +4,4 @@ dpp
 vimbackup
 vim/.init.vim-rplugin~
 venv*
+.DS_Store
