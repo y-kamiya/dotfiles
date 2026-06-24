@@ -4,4 +4,4 @@
 "aqua:neovim" = "0.11.4"
 "aqua:codex" = "latest"
 "aqua:gh" = "latest"
-"claude-code" = "latest"
+"aqua:claude-code" = "latest"
