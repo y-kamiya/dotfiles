@@ -668,8 +668,8 @@ let g:slime_bracketed_paste = 1
 
 nnoremap [slime] <Nop>
 xnoremap [slime] <Nop>
-nmap <Leader>l [slime]
-xmap <Leader>l [slime]
+nmap <Leader>sl [slime]
+xmap <Leader>sl [slime]
 xmap [slime] <Plug>SlimeRegionSend
 nmap [slime] <Plug>SlimeMotionSend
 nmap [slime]s <Plug>SlimeLineSend
