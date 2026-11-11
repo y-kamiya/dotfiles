@@ -86,8 +86,6 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 
-eval "$(mise activate zsh)"
-
 if type kubectl > /dev/null 2>&1; then
     source <(kubectl completion zsh)
 fi
@@ -99,5 +97,7 @@ fi
 if [ -f $HOME/.zshrc_env ]; then
     source $HOME/.zshrc_env
 fi
+eval "$(mise activate zsh)"
+
 
 # zprof
